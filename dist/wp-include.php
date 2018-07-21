@@ -1,0 +1,1 @@
+<div id=app></div><script src=/static/js/manifest.2ae2e69a05c33dfc65f8.js></script><script src=/static/js/vendor.c4b689a9096c391c9cff.js></script><script src=/static/js/app.4dd27e8a79be84950b6c.js></script>
