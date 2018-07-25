@@ -1,8 +1,15 @@
 <template lang="html">
-  <div class="home-grid clearfix">
-    <PostList category="gear"></PostList>
-    <PostList category="news"></PostList>
-    <PostList category="opinion"></PostList>
+  <div>
+    <masonry
+      :cols="{default: 2, 720: 1}"
+      :gutter="10">
+      <PostList category="gear"></PostList>
+      <PostList category="feature"></PostList>
+      <PostList category="news"></PostList>
+      <PostList category="video"></PostList>
+      <PostList category="featured-ride"></PostList>
+      <PostList category="opinion"></PostList>
+    </masonry>
   </div>
 </template>
 
@@ -18,13 +25,5 @@ export default {
 </script>
 
 <style lang="css">
-@media (min-width: 770px){
-  .home-grid .mh_magazine_custom_posts {
-    width: 48%;
-    margin-left: 2%;
-    float: left;
-  }
-}
-
 
 </style>
