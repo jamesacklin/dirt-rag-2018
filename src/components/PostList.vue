@@ -6,8 +6,8 @@
         <Post v-for="(post, index) in postArray" :key="index" :data="post" :index="index"></Post>
       </div>
       <div v-if="postsLoaded">
-        <button class="action-button" style="text-transform: capitalize" v-if="counter < 10" v-on:click="increment">More {{ category }}</button>
-        <button class="action-button" style="text-transform: capitalize" v-if="counter > 10">See All {{ category }}</button>
+        <button class="action-button" style="text-transform: capitalize" v-if="counter < 6" v-on:click="increment">More {{ category }} Posts</button>
+        <button class="action-button" style="text-transform: capitalize" v-if="counter >= 6">See All {{ category }} Posts</button>
       </div>
     </div>
 </template>

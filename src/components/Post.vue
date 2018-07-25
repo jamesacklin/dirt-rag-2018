@@ -26,7 +26,7 @@ export default {
   props: ['data', 'index'],
   methods: {
     getFeaturedImage: function (post) {
-      if (post._embedded['wp:featuredmedia'][0].media_type === 'image') {
+      if (post._embedded['wp:featuredmedia']) {
         return post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url
       }
     },

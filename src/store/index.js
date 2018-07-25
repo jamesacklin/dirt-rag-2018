@@ -4,6 +4,8 @@ import axios from 'axios'
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+const host = ''
+
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
@@ -14,7 +16,7 @@ const store = new Vuex.Store({
     getWpCat: function (context, payload) {
       const cat = payload.category
       axios
-        .get('https://dirtragmag.com/wp-json/wp/v2/categories?slug=' + cat)
+        .get(host + '/wp-json/wp/v2/categories?slug=' + cat)
         .then(response => {
           var wpCat = response.data[0].id
           this.dispatch('getPosts', { category: cat, categoryId: wpCat })
@@ -28,7 +30,7 @@ const store = new Vuex.Store({
           resolve()
         } else {
           axios
-            .get('https://dirtragmag.com/wp-json/wp/v2/posts?_embed&categories=' + catId)
+            .get(host + '/wp-json/wp/v2/posts?_embed&per_page=6&categories=' + catId)
             .then(response => {
               context.commit({
                 type: 'storePosts',
