@@ -69,7 +69,7 @@ export default {
   }
 
   .category-header {
-    background: black;
+    background: red;
     color: white;
     font-size: 1.2rem;
     padding: 1rem;
