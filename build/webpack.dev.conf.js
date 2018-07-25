@@ -53,9 +53,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: './build/templates/index.html',
-      inject: true
+      filename: config.build.index,
+      template: './build/templates/index-dev.html',
+      inject: false
     }),
     new HtmlWebpackPlugin({
       filename: config.build.homephpfile,
