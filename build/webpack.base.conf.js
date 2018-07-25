@@ -22,7 +22,7 @@ const createLintingRule = () => ({
 })
 
 let cleanOptions = {
-  root: path.resolve(__dirname, 'dist'),
+  root: path.resolve(__dirname),
   watch: false,
   allowExternal: true,
   beforeEmit: true
@@ -43,7 +43,7 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   plugins: [
-    new CleanWebpackPlugin(['dist'], cleanOptions),
+    new CleanWebpackPlugin(['../dist'], cleanOptions),
     new WriteFilePlugin()
   ],
   resolve: {
