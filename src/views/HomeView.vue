@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="home-grid">
+  <div class="home-grid clearfix">
     <PostList category="gear"></PostList>
     <PostList category="news"></PostList>
     <PostList category="opinion"></PostList>
@@ -18,13 +18,13 @@ export default {
 </script>
 
 <style lang="css">
-.home-grid {
-  display: flex;
-  flex-direction: column;
-}
-@media (min-width: 960px){
-  .home-grid {
-    flex-direction: row;
+@media (min-width: 770px){
+  .home-grid .mh_magazine_custom_posts {
+    width: 48%;
+    margin-left: 2%;
+    float: left;
   }
 }
+
+
 </style>

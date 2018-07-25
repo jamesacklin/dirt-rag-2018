@@ -1,15 +1,23 @@
 <template lang="html">
-    <div style="padding: 0 1rem">
-      <h2 class="category-header">{{ category }}</h2>
-      <Spinner class="spinner" v-if="!postsLoaded" key="spinner"></Spinner>
-      <div>
-        <Post v-for="(post, index) in postArray" :key="index" :data="post" :index="index"></Post>
-      </div>
-      <div v-if="postsLoaded">
-        <button class="action-button" style="text-transform: capitalize" v-if="counter < 6" v-on:click="increment">More {{ category }} Posts</button>
-        <button class="action-button" style="text-transform: capitalize" v-if="counter >= 6">See All {{ category }} Posts</button>
-      </div>
+  <div class="mh-widget mh-home-3 mh_magazine_custom_posts">
+    <h4 class="mh-widget-title">
+      <span class="mh-widget-title-inner>">
+        {{ category }}
+      </span>
+    </h4>
+    <Spinner class="spinner" v-if="!postsLoaded" key="spinner"></Spinner>
+    <ul class="mh-custom-posts-widget clearfix">
+      <Post v-for="(post, index) in postArray" :key="index" :data="post" :index="index"></Post>
+    </ul>
+    <div v-if="postsLoaded">
+      <button class="action-button" v-if="counter < 6" v-on:click="increment">
+        <span class="">More {{ category }} Posts</span>
+      </button>
+      <button class="action-button" v-if="counter >= 6">
+        <span class="">See All {{ category }} Posts</span>
+      </button>
     </div>
+  </div>
 </template>
 
 <script>
@@ -56,29 +64,7 @@ export default {
 </script>
 
 <style lang="css">
-  @font-face {
-    font-family: system;
-    font-style: normal;
-    font-weight: 300;
-    src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma");
-  }
-
-  body {
-    font-family: "system";
-    line-height: 1.6rem;
-  }
-
-  .category-header {
-    background: red;
-    color: white;
-    font-size: 1.2rem;
-    padding: 1rem;
-    font-weight: bold;
-    text-transform: capitalize;
-  }
-
   .action-button {
-    background: none;
     border: 0;
     cursor: pointer;
     font: inherit;
@@ -90,14 +76,19 @@ export default {
         -ms-user-select: none;
     display: block;
     width: 100%;
-    height: 3rem;
-    font-size: 1rem;
-    background: #DDD;
+    /* height: 3rem; */
+    /* font-size: 1rem; */
+    /* background: #DDD; */
+    background-color: #2a2a2a;
     font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    font-size: 0.875rem;
   }
 
   .action-button:hover {
-    background: #EFEFEF;
+    background-color: #BE1E2D;
   }
 
   .action-button:focus {
