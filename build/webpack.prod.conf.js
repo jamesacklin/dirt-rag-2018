@@ -76,7 +76,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     }),
     new HtmlWebpackPlugin({
       filename: config.build.homephpfile,
-      template: './build/templates/homepage-vue.php',
+      template: './build/templates/homepage-vue-prod.php',
       inject: false,
       minify: {
         removeComments: true,

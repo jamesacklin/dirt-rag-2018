@@ -57,6 +57,20 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       template: './build/templates/index.html',
       inject: true
     }),
+    new HtmlWebpackPlugin({
+      filename: config.build.homephpfile,
+      template: './build/templates/homepage-vue-dev.php',
+      inject: false,
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+        // more options:
+        // https://github.com/kangax/html-minifier#options-quick-reference
+      },
+      // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+      chunksSortMode: 'dependency'
+    }),
     // copy custom static assets
     new CopyWebpackPlugin([
       {

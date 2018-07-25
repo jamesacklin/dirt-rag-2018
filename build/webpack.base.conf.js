@@ -3,6 +3,8 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+const WriteFilePlugin = require('write-file-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -19,6 +21,12 @@ const createLintingRule = () => ({
   }
 })
 
+let cleanOptions = {
+  root: __dirname,
+  watch: true,
+  allowExternal: true
+}
+
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
@@ -31,6 +39,10 @@ module.exports = {
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
+  plugins: [
+    new CleanWebpackPlugin(['../dist'], cleanOptions),
+    new WriteFilePlugin()
+  ],
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
