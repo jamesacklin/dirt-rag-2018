@@ -11,10 +11,10 @@
     </ul>
     <div v-if="postsLoaded">
       <button class="action-button" v-if="counter < 6" v-on:click="increment">
-        <span class="">More {{ category }} Posts</span>
+        <span class=""><i class="fa fa-chevron-down"></i> More {{ category }} Posts</span>
       </button>
       <button class="action-button" v-if="counter >= 6">
-        <span class="">See All {{ category }} Posts</span>
+        <span class="">See All {{ category }} Posts <i class="fa fa-arrow-right"></i></span>
       </button>
     </div>
   </div>
@@ -79,16 +79,18 @@ export default {
     /* height: 3rem; */
     /* font-size: 1rem; */
     /* background: #DDD; */
-    background-color: #2a2a2a;
+    border: 2px solid #2a2a2a;
     font-weight: bold;
-    color: white;
+    color: #2a2a2a;
+    background: transparent;
     text-transform: uppercase;
     padding: 10px 15px;
     font-size: 0.875rem;
   }
 
   .action-button:hover {
-    background-color: #BE1E2D;
+    border-color: #BE1E2D;
+    color: #BE1E2D;
   }
 
   .action-button:focus {

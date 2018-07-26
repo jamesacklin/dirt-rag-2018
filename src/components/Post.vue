@@ -1,5 +1,5 @@
 <template lang="html">
-  <li class="mh-custom-posts-item clearfix post">
+  <li class="mh-custom-posts-item clearfix">
     <figure :class="{'mh-custom-posts-thumb-xl' : index == 0, 'mh-custom-posts-thumb' : index != 0}">
       <a class="mh-thumb-icon" :href="data.link">
         <img :class="{'attachment-mh-magazine-small size-mh-magazine-small wp-post-image' : index != 0}" :src="getFeaturedImage(data)" alt="">
@@ -19,7 +19,7 @@
         </span>
       </div>
       <div v-if="index == 0" class="mh-excerpt">
-        <p v-html="data.excerpt.rendered"></p>
+        <div v-html="data.excerpt.rendered"></div>
       </div>
     </div>
   </li>
