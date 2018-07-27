@@ -10,9 +10,31 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
+    featuredPost: {},
     posts: {}
   },
   actions: {
+    getFeaturedPost: function (context, payload) {
+      return new Promise((resolve, reject) => {
+        if (context.state.featuredPost[0]) {
+          resolve()
+        } else {
+          axios
+            .get(host + '/wp-json/wp/v2/posts?filter[meta_key]=mh-featured-post&filter[meta_value]=on&per_page=1&orderby=date&order=desc&_embed')
+            .then(response => {
+              console.log('got featured post data back')
+              context.commit({
+                type: 'storeFeatured',
+                data: response.data[0]
+              })
+              resolve()
+            })
+            .catch(error => {
+              reject(error)
+            })
+        }
+      })
+    },
     getWpCat: function (context, payload) {
       const cat = payload.category
       axios
@@ -47,6 +69,9 @@ const store = new Vuex.Store({
     }
   },
   mutations: {
+    storeFeatured (state, data) {
+      Vue.set(state.featuredPost, 'postData', data)
+    },
     storePosts (state, {category, data}) {
       Vue.set(state.posts, category, data)
     }

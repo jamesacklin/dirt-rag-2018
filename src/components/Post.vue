@@ -52,7 +52,15 @@ export default {
 </script>
 
 <style lang="css">
+h3.mh-custom-posts-xl-title {
+  font-family: 'Oswald';
+  text-transform: uppercase;
+  font-weight: normal;
+}
 h3.mh-custom-posts-small-title {
+  font-family: 'Oswald';
+  text-transform: uppercase;
+  font-weight: normal;
   font-size: 1rem;
 }
 img.size-mh-magazine-small {
