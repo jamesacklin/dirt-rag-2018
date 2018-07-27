@@ -1,15 +1,14 @@
 <template lang="html">
   <div>
-    <Spinner class="spinner" v-if="!postLoaded" key="spinner"></Spinner>
-    <div class="featured-post" v-if="postLoaded">
+    <div class="featured-post">
       <figure>
-        <a :href="post.link"><img :src="getFeaturedImage(post)"></a>
-        <figcaption>
+        <a v-if="postLoaded" :href="post.link"><img :src="getFeaturedImage(post)"></a>
+        <figcaption v-if="postLoaded">
           <h1><a :href="post.link"><span v-html="post.title.rendered"></span></a></h1>
           <p>by {{ post._embedded.author[0].name }}</p>
         </figcaption>
       </figure>
-      <div class="featured-post-excerpt" v-html="post.excerpt.rendered"></div>
+      <div v-if="postLoaded" class="featured-post-excerpt" v-html="post.excerpt.rendered"></div>
     </div>
   </div>
 </template>
@@ -89,6 +88,7 @@ export default {
   line-height: 1em;
   margin-bottom: 0.25em;
   font-weight: normal;
+  letter-spacing: -0.025em;
 }
 .featured-post figure figcaption h1 a {
   color: white;
