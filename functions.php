@@ -19,8 +19,6 @@ function mh_magazine_child_styles() {
 }
 add_action('wp_enqueue_scripts', 'mh_magazine_child_styles');
 
-add_filter('excerpt_more', 'excerpt_readmore');
-
 /***** Custom Meta Boxes *****/
 register_meta('post', 'mh-featured-post',
     [
