@@ -28,6 +28,10 @@ export default {
 <style lang="css">
 @import url('https://fonts.googleapis.com/css?family=Oswald:500|Martel');
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   text-rendering: optimizeLegibility;
 }
