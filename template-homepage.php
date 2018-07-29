@@ -7,8 +7,11 @@
       <div id="main-content" class="mh-content mh-home-content">
         <div id="homepage-vue-app"></div>
       </div>
-      <div class="mh-widget-col-1 mh-sidebar mh-home-sidebar mh-home-area-6">
-        sidebar goes here
+      <?php if (is_active_sidebar('mh-home-6')) { ?>
+        <div class="mh-widget-col-1 mh-sidebar mh-home-sidebar mh-home-area-6">
+          <?php dynamic_sidebar('mh-home-6'); ?>
+        </div>
+      <?php } ?>
       </div>
     </div>
   </div>
