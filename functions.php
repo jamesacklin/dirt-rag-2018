@@ -19,6 +19,33 @@ function mh_magazine_child_styles() {
 }
 add_action('wp_enqueue_scripts', 'mh_magazine_child_styles');
 
+/***** Custom Excerpts *****/
+
+if (!function_exists('mh_magazine_excerpt_length')) {
+	function mh_magazine_excerpt_length($length) {
+		$excerpt_length = 30;
+		return $excerpt_length;
+	}
+}
+add_filter('excerpt_length', 'mh_magazine_excerpt_length', 999);
+
+if (!function_exists('mh_magazine_excerpt_more')) {
+	function mh_magazine_excerpt_more() {
+		global $post;
+		$mh_magazine_options = mh_magazine_theme_options();
+		return '… <a class="mh-excerpt-more" href="' . esc_url(get_permalink($post->ID)) . '" title="' . the_title_attribute('echo=0') . '">Read more</a>';
+	}
+}
+add_filter('excerpt_more', 'mh_magazine_excerpt_more');
+
+if (!function_exists('mh_magazine_excerpt_markup')) {
+	function mh_magazine_excerpt_markup($excerpt) {
+		$markup = $excerpt;
+		return $markup;
+	}
+}
+add_filter('the_excerpt', 'mh_magazine_excerpt_markup');
+
 /***** Custom Meta Boxes *****/
 register_meta('post', 'mh-featured-post',
     [

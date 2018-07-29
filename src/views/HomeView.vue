@@ -40,6 +40,14 @@ p {
   font-family: "Martel"
 }
 
+.mh-excerpt-more {
+  color: #BE1E2D
+}
+
+.mh-excerpt-more:hover {
+  text-decoration: underline;
+}
+
 @media (min-width: 770px){
   .home-grid {
     display: grid;
