@@ -53,22 +53,25 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      filename: config.build.index,
-      template: './build/templates/index-dev.html',
-      inject: false
-    }),
-    new HtmlWebpackPlugin({
-      filename: config.build.homephpfile,
-      template: './build/templates/homepage-vue-dev.php',
+      filename: config.build.assetscss,
+      template: './build/templates/assets-css-dev.php',
       inject: false,
       minify: {
         removeComments: true,
         collapseWhitespace: true,
         removeAttributeQuotes: true
-        // more options:
-        // https://github.com/kangax/html-minifier#options-quick-reference
       },
-      // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+      chunksSortMode: 'dependency'
+    }),
+    new HtmlWebpackPlugin({
+      filename: config.build.assetsjs,
+      template: './build/templates/assets-js-dev.php',
+      inject: false,
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+      },
       chunksSortMode: 'dependency'
     }),
     // copy custom static assets

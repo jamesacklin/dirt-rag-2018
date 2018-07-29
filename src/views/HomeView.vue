@@ -40,6 +40,12 @@ p {
   font-family: "Martel"
 }
 
+.entry-title, .page-title {
+  font-family: 'Oswald';
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
 .mh-excerpt-more {
   color: #BE1E2D
 }

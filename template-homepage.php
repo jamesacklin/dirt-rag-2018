@@ -5,7 +5,7 @@
   <div class="mh-main mh-home-main">
     <div class="mh-home-columns clearfix">
       <div id="main-content" class="mh-content mh-home-content">
-        <?php include 'dist/homepage-vue.php' ?>
+        <div id="homepage-vue-app"></div>
       </div>
       <div class="mh-widget-col-1 mh-sidebar mh-home-sidebar mh-home-area-6">
         sidebar goes here
