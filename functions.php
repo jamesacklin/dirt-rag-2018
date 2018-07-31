@@ -47,7 +47,7 @@ if (!function_exists('mh_magazine_excerpt_markup')) {
 add_filter('the_excerpt', 'mh_magazine_excerpt_markup');
 
 /***** Custom Meta Boxes *****/
-register_meta('post', 'mh-featured-post',
+register_meta('post', 'featured-post',
     [
         'show_in_rest' => true,
         'type' => 'boolean',
@@ -78,8 +78,8 @@ if (!function_exists('mh_post_options')) {
 		echo '<br />';
 		echo '</p>';
 		echo '<p>';
-		echo '<input type="checkbox" id="mh-featured-post" name="mh-featured-post"'; echo checked(get_post_meta($post->ID, 'mh-featued-post', true), 'on'); echo '/>';
-		echo '<label for="mh-featured-post">' . esc_html__('Feature this post on Home Page', 'mh-magazine') . '</label>';
+		echo '<input type="checkbox" id="featured-post" name="featured-post"'; echo checked(get_post_meta($post->ID, 'mh-featued-post', true), 'on'); echo '/>';
+		echo '<label for="featured-post">' . esc_html__('Feature this post on Home Page', 'mh-magazine') . '</label>';
 		echo '</p>';
 		echo '<p>';
 		echo '<input type="checkbox" id="mh-no-ad" name="mh-no-ad"'; echo checked(get_post_meta($post->ID, 'mh-no-ad', true), 'on'); echo '/>';
@@ -111,7 +111,7 @@ if (!function_exists('mh_save_meta_boxes')) {
 		if ('post' == $_POST['post_type']) {
 			$meta_data['mh-subheading'] = esc_attr($_POST['mh-subheading']);
 			$meta_data['mh-alt-ad'] = $_POST['mh-alt-ad'];
-			$meta_data['mh-featured-post'] = isset($_POST['mh-featured-post']) ? esc_attr($_POST['mh-featured-post']) : '';
+			$meta_data['featured-post'] = isset($_POST['featured-post']) ? esc_attr($_POST['featured-post']) : '';
 			$meta_data['mh-no-ad'] = isset($_POST['mh-no-ad']) ? esc_attr($_POST['mh-no-ad']) : '';
 			$meta_data['mh-no-image'] = isset($_POST['mh-no-image']) ? esc_attr($_POST['mh-no-image']) : '';
 		}
