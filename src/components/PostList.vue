@@ -10,7 +10,7 @@
     </h4>
     <Spinner class="spinner" v-if="!postsLoaded" key="spinner"></Spinner>
     <ul class="mh-custom-posts-widget clearfix">
-      <Post v-for="(post, index) in postArray" :key="index" :data="post" :index="index"></Post>
+      <Post v-for="(post, index) in postArray" :key="index" :postdata="post" :index="index"></Post>
     </ul>
     <div v-if="postsLoaded">
       <button class="action-button" v-if="counter < 6" v-on:click="increment">

@@ -2,7 +2,12 @@
   <li class="mh-custom-posts-item clearfix">
     <figure :class="{'mh-custom-posts-thumb-xl' : index == 0, 'mh-custom-posts-thumb' : index != 0}">
       <a class="mh-thumb-icon" :href="data.link">
-        <img :class="{'attachment-mh-magazine-small size-mh-magazine-small wp-post-image' : index != 0}" :src="getFeaturedImage(data)" alt="">
+        <img
+          :class="{'attachment-mh-magazine-small size-mh-magazine-small wp-post-image' : index != 0}"
+          :srcset="srcset"
+          :src="getFeaturedImage(data)"
+          sizes="(max-width: 770px) 80px, (min-width: 770px) 100%"
+          alt="">
       </a>
     </figure>
     <div class="mh-custom-posts-content">
@@ -18,7 +23,7 @@
           <i class="fa fa-comment-o"></i> <span class="mh-comment-count-link" v-html="getCommentsLength(data)"></span>
         </span>
       </div>
-      <div v-if="index == 0" class="mh-excerpt">
+      <div v-if="index === 0" class="mh-excerpt">
         <div v-html="data.excerpt.rendered"></div>
       </div>
     </div>
@@ -30,11 +35,16 @@ import dayjs from 'dayjs'
 
 export default {
   name: 'Post',
-  props: ['data', 'index'],
+  props: ['postdata', 'index'],
+  data: function () {
+    return {
+      data: this.postdata
+    }
+  },
   methods: {
     getFeaturedImage: function (post) {
       if (post._embedded['wp:featuredmedia']) {
-        return post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url
+        return post._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url
       }
     },
     getCommentsLength: function (post) {
@@ -46,6 +56,18 @@ export default {
     },
     formatDate: function (date) {
       return dayjs(String(date)).format('MMMM D, YYYY')
+    }
+  },
+  computed: {
+    srcset: function () {
+      if (this.index === 0) {
+        return [
+          this.data._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url + ' 150w',
+          this.data._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url + ' 320w'
+        ].join(', ')
+      } else {
+        return this.data._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url
+      }
     }
   }
 }
