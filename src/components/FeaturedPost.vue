@@ -2,7 +2,12 @@
   <div>
     <div class="featured-post">
       <figure>
-        <a v-if="postLoaded" :href="post.link"><img :src="getFeaturedImage(post)"></a>
+        <a v-if="postLoaded" :href="post.link">
+          <img
+            :srcset="srcset"
+            sizes="(max-width: 770px) 200px, 50vw"
+            :src="getFeaturedImage(post)">
+        </a>
         <figcaption v-if="postLoaded">
           <h1><a :href="post.link"><span v-html="post.title.rendered"></span></a></h1>
           <p>by {{ post._embedded.author[0].name }}</p>
@@ -28,11 +33,18 @@ export default {
     }
   },
   computed: {
+    srcset: function () {
+      return [
+        this.post._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url + ' 150w',
+        this.post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url + ' 320w',
+        this.post._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ' 600w'
+      ].join(', ')
+    }
   },
   methods: {
     getFeaturedImage: function (post) {
       if (post._embedded['wp:featuredmedia']) {
-        return post._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url
+        return post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url
       }
     }
   },
