@@ -20,6 +20,7 @@
 
 <script>
 import Spinner from './Spinner.vue'
+const themepath = '/wp-content/themes/dirt-rag-2018'
 
 export default {
   name: 'FeaturedPost',
@@ -34,17 +35,26 @@ export default {
   },
   computed: {
     srcset: function () {
-      return [
-        this.post._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url + ' 150w',
-        this.post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url + ' 320w',
-        this.post._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ' 600w'
-      ].join(', ')
+      if (typeof this.post._embedded['wp:featuredmedia'] !== 'undefined') {
+        return [
+          this.post._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url + ' 150w',
+          this.post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url + ' 320w',
+          this.post._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ' 600w'
+        ].join(', ')
+      } else {
+        return [
+          themepath + '/static/post-default-thumbnail.png 150w',
+          themepath + '/static/post-default-medium.png 600w'
+        ]
+      }
     }
   },
   methods: {
     getFeaturedImage: function (post) {
-      if (post._embedded['wp:featuredmedia']) {
+      if (typeof this.post._embedded['wp:featuredmedia'] !== 'undefined') {
         return post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url
+      } else {
+        return themepath + '/static/post-default-medium.png'
       }
     }
   },

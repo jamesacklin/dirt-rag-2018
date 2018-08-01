@@ -32,6 +32,7 @@
 
 <script>
 import dayjs from 'dayjs'
+const themepath = '/wp-content/themes/dirt-rag-2018'
 
 export default {
   name: 'Post',
@@ -45,6 +46,8 @@ export default {
     getFeaturedImage: function (post) {
       if (post._embedded['wp:featuredmedia']) {
         return post._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url
+      } else {
+        return themepath + '/static/post-default-thumbnail.png'
       }
     },
     getCommentsLength: function (post) {
@@ -60,13 +63,20 @@ export default {
   },
   computed: {
     srcset: function () {
-      if (this.index === 0) {
+      if (this.index === 0 && typeof this.data._embedded['wp:featuredmedia'] !== 'undefined') {
         return [
           this.data._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url + ' 150w',
           this.data._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url + ' 320w'
         ].join(', ')
+      } else if (this.index !== 0 && typeof this.data._embedded['wp:featuredmedia'] !== 'undefined') {
+        return [
+          this.data._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url + ' 150w'
+        ].join(', ')
       } else {
-        return this.data._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url
+        return [
+          themepath + '/static/post-default-thumbnail.png 150w',
+          themepath + '/static/post-default-medium.png 600w'
+        ]
       }
     }
   }
