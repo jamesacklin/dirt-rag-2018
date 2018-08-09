@@ -1,51 +1,79 @@
 <template lang="html">
   <div>
-    <FeaturedPost></FeaturedPost>
-    <!-- <div id="div-gpt-ad-1487038544877-10" data-google-query-id="CM-Y4cjU4NwCFYmnaQodOWEORQ"></div> -->
-    <div class="home-grid">
-      <div class="mobile-unit" v-show="isMobile">
-        <!-- /28844187/DR_300x250_Square1 -->
-        <div id='div-gpt-ad-1487038544877-0'>
+    <div id="main-content" class="mh-content mh-home-content">
+      <FeaturedPost></FeaturedPost>
+      <!-- <div id="div-gpt-ad-1487038544877-10" data-google-query-id="CM-Y4cjU4NwCFYmnaQodOWEORQ"></div> -->
+      <div class="home-grid">
+        <div class="tag-unit" v-if="isMobile">
+          <!-- /28844187/DR_300x250_Square1 -->
+          <div id='div-gpt-ad-1487038544877-0'>
+          </div>
+        </div>
+        <PostList category="gear"></PostList>
+        <div class="tag-unit" v-if="isMobile">
+          <!-- /28844187/DR_300x250_Square2 -->
+          <div id='div-gpt-ad-1487038544877-1'>
+          </div>
+        </div>
+        <PostList category="feature"></PostList>
+        <div class="tag-unit" v-if="isMobile">
+          <!-- /28844187/DR_300x250_Square3 -->
+          <div id='div-gpt-ad-1487038544877-2'>
+          </div>
+        </div>
+        <PostList category="news"></PostList>
+        <div class="tag-unit" v-if="isMobile">
+          <!-- /28844187/DR_300x250_Square4 -->
+          <div id='div-gpt-ad-1487038544877-3'>
+          </div>
+        </div>
+        <PostList category="video"></PostList>
+        <div class="tag-unit" v-if="isMobile">
+          <!-- /28844187/DR_300x250_Square5 -->
+          <div id='div-gpt-ad-1487038544877-4'>
+          </div>
+        </div>
+        <PostList category="featured-ride"></PostList>
+        <div class="tag-unit" v-if="isMobile">
+          <!-- /28844187/DR_300x250_Square6 -->
+          <div id='div-gpt-ad-1487038544877-5'>
+          </div>
+        </div>
+        <PostList category="opinion"></PostList>
+        <div class="tag-unit" v-if="isMobile">
+          <!-- /28844187/DR_300x250_Square7 -->
+          <div id='div-gpt-ad-1487038544877-6'>
+          </div>
+          <!-- /28844187/DR_300x250_Square8 -->
+          <div id='div-gpt-ad-1487038544877-7'>
+          </div>
         </div>
       </div>
-      <PostList category="gear"></PostList>
-      <div class="mobile-unit" v-show="isMobile">
-        <!-- /28844187/DR_300x250_Square2 -->
-        <div id='div-gpt-ad-1487038544877-1'>
-        </div>
+    </div>
+    <div v-if="!isMobile" class="mh-widget-col-1 mh-sidebar mh-home-sidebar mh-home-area-6">
+      <div class="tag-unit">
+        <div id='div-gpt-ad-1487038544877-0'></div>
       </div>
-      <PostList category="feature"></PostList>
-      <div class="mobile-unit" v-show="isMobile">
-        <!-- /28844187/DR_300x250_Square3 -->
-        <div id='div-gpt-ad-1487038544877-2'>
-        </div>
+      <div class="tag-unit">
+        <div id='div-gpt-ad-1487038544877-1'></div>
       </div>
-      <PostList category="news"></PostList>
-      <div class="mobile-unit" v-show="isMobile">
-        <!-- /28844187/DR_300x250_Square4 -->
-        <div id='div-gpt-ad-1487038544877-3'>
-        </div>
+      <div class="tag-unit">
+        <div id='div-gpt-ad-1487038544877-2'></div>
       </div>
-      <PostList category="video"></PostList>
-      <div class="mobile-unit" v-show="isMobile">
-        <!-- /28844187/DR_300x250_Square5 -->
-        <div id='div-gpt-ad-1487038544877-4'>
-        </div>
+      <div class="tag-unit">
+        <div id='div-gpt-ad-1487038544877-3'></div>
       </div>
-      <PostList category="featured-ride"></PostList>
-      <div class="mobile-unit" v-show="isMobile">
-        <!-- /28844187/DR_300x250_Square6 -->
-        <div id='div-gpt-ad-1487038544877-5'>
-        </div>
+      <div class="tag-unit">
+        <div id='div-gpt-ad-1487038544877-4'></div>
       </div>
-      <PostList category="opinion"></PostList>
-      <div class="mobile-unit" v-show="isMobile">
-        <!-- /28844187/DR_300x250_Square7 -->
-        <div id='div-gpt-ad-1487038544877-6'>
-        </div>
-        <!-- /28844187/DR_300x250_Square8 -->
-        <div id='div-gpt-ad-1487038544877-7'>
-        </div>
+      <div class="tag-unit">
+        <div id='div-gpt-ad-1487038544877-5'></div>
+      </div>
+      <div class="tag-unit">
+        <div id='div-gpt-ad-1487038544877-6'></div>
+      </div>
+      <div class="tag-unit">
+        <div id='div-gpt-ad-1487038544877-7'></div>
       </div>
     </div>
   </div>
@@ -95,7 +123,7 @@ p {
   font-family: "Martel"
 }
 
-.mobile-unit {
+.tag-unit {
   text-align: center;
   margin-bottom: 1rem;
 }
