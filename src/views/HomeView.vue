@@ -3,6 +3,7 @@
     <div id="main-content" class="mh-content mh-home-content">
 
       <FeaturedPost></FeaturedPost>
+      <ContestSplice></ContestSplice>
       <!-- <div id="div-gpt-ad-1487038544877-10" data-google-query-id="CM-Y4cjU4NwCFYmnaQodOWEORQ"></div> -->
       <div class="home-grid">
         <div class="tag-unit" v-if="isMobile">
@@ -22,7 +23,6 @@
           <div id='div-gpt-ad-1487038544877-2'>
           </div>
         </div>
-        <ContestSplice></ContestSplice>
         <PostList category="news"></PostList>
         <div class="tag-unit" v-if="isMobile">
           <!-- /28844187/DR_300x250_Square4 -->
