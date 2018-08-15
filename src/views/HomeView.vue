@@ -1,6 +1,7 @@
 <template lang="html">
   <div>
     <div id="main-content" class="mh-content mh-home-content">
+
       <FeaturedPost></FeaturedPost>
       <!-- <div id="div-gpt-ad-1487038544877-10" data-google-query-id="CM-Y4cjU4NwCFYmnaQodOWEORQ"></div> -->
       <div class="home-grid">
@@ -21,6 +22,7 @@
           <div id='div-gpt-ad-1487038544877-2'>
           </div>
         </div>
+        <ContestSplice></ContestSplice>
         <PostList category="news"></PostList>
         <div class="tag-unit" v-if="isMobile">
           <!-- /28844187/DR_300x250_Square4 -->
@@ -82,6 +84,7 @@
 <script>
 import MobileDetect from 'mobile-detect'
 import FeaturedPost from '../components/FeaturedPost'
+import ContestSplice from '../components/ContestSplice'
 import PostList from '../components/PostList'
 
 var md = new MobileDetect(window.navigator.userAgent)
@@ -90,6 +93,7 @@ export default {
   name: 'home-view',
   components: {
     FeaturedPost,
+    ContestSplice,
     PostList
   },
   computed: {
@@ -144,9 +148,17 @@ p {
 
 @media (min-width: 770px){
   .home-grid {
-    display: grid;
-    grid-gap: 2%;
-    grid-template-columns: repeat(2, 48%);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .mh_magazine_custom_posts {
+    width: 48%;
+    margin: 0 1% 1rem;
+  }
+  .contest-splice {
+    width: 100%;
+    flex-grow: 1;
   }
 }
 </style>

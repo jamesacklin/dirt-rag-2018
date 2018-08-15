@@ -43,7 +43,7 @@ export default {
     }
   },
   created () {
-    this.$store.dispatch('getWpCat', { category: this.category })
+    this.$store.dispatch('getWpCat', { category: this.category, perpage: 6 })
   },
   computed: {
     postArray: function () {
