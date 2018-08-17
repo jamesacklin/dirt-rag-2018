@@ -3,10 +3,7 @@
     <div class="featured-post">
       <figure>
         <a v-if="postLoaded" :href="post.link">
-          <img
-            :srcset="srcset"
-            sizes="(max-width: 770px) 200px, 50vw"
-            :src="getFeaturedImage(post)">
+          <img :srcset="srcset" :src="getFeaturedImage(post)" sizes="(max-width: 770px) 200px, 50vw">
         </a>
         <figcaption v-if="postLoaded">
           <h1><a :href="post.link"><span v-html="post.title.rendered"></span></a></h1>

@@ -73,37 +73,37 @@ export default {
 </script>
 
 <style lang="css">
-  .action-button {
-    border: 0;
-    cursor: pointer;
-    font: inherit;
-    line-height: normal;
-    overflow: visible;
-    padding: 0;
-    -webkit-user-select: none; /* for button */
-       -moz-user-select: none;
-        -ms-user-select: none;
-    display: block;
-    width: 100%;
-    /* height: 3rem; */
-    /* font-size: 1rem; */
-    /* background: #DDD; */
-    border: 2px solid #2a2a2a;
-    font-weight: bold;
-    text-align: center;
-    color: #2a2a2a;
-    background: transparent;
-    text-transform: uppercase;
-    padding: 10px 15px;
-    font-size: 0.875rem;
-  }
+.action-button {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  -webkit-user-select: none; /* for button */
+  -moz-user-select: none;
+  -ms-user-select: none;
+  display: block;
+  width: 100%;
+  /* height: 3rem; */
+  /* font-size: 1rem; */
+  /* background: #DDD; */
+  border: 2px solid #2a2a2a;
+  font-weight: bold;
+  text-align: center;
+  color: #2a2a2a;
+  background: transparent;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  font-size: 0.875rem;
+}
 
-  .action-button:hover {
-    border-color: #BE1E2D;
-    color: #BE1E2D;
-  }
+.action-button:hover {
+  border-color: #BE1E2D;
+  color: #BE1E2D;
+}
 
-  .action-button:focus {
-    outline: none;
-  }
+.action-button:focus {
+  outline: none;
+}
 </style>

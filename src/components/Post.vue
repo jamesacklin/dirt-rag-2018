@@ -3,11 +3,11 @@
     <figure :class="{'mh-custom-posts-thumb-xl' : index == 0, 'mh-custom-posts-thumb' : index != 0}">
       <a class="mh-thumb-icon" :href="data.link">
         <img
-          :class="{'attachment-mh-magazine-small size-mh-magazine-small wp-post-image' : index != 0}"
-          :srcset="srcset"
-          :src="getFeaturedImage(data)"
-          sizes="(max-width: 770px) 80px, (min-width: 770px) 100%"
-          alt="">
+        :class="{'attachment-mh-magazine-small size-mh-magazine-small wp-post-image' : index != 0}"
+        :srcset="srcset"
+        :src="getFeaturedImage(data)"
+        sizes="(max-width: 770px) 80px, (min-width: 770px) 100%"
+        alt="">
       </a>
     </figure>
     <div class="mh-custom-posts-content">
