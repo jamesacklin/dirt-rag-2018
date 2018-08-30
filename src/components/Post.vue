@@ -1,5 +1,5 @@
 <template lang="html">
-  <li class="mh-custom-posts-item clearfix">
+  <div>
     <figure :class="{'mh-custom-posts-thumb-xl' : index == 0, 'mh-custom-posts-thumb' : index != 0}">
       <a class="mh-thumb-icon" :href="data.link">
         <img
@@ -10,24 +10,24 @@
         alt="">
       </a>
     </figure>
-    <div class="mh-custom-posts-content">
-      <div class="mh-custom-posts-header">
+    <div class="">
+      <div class="">
         <h3 :class="{'mh-custom-posts-xl-title' : index == 0, 'mh-custom-posts-small-title' : index != 0}"><a :href="data.link"><span v-html="data.title.rendered"></span></a></h3>
       </div>
 
-      <div class="mh-meta mh-custom-posts-meta">
-        <span class="mh-meta-date updated">
+      <div class="">
+        <span class="">
           <i class="fa fa-clock-o"></i> <span v-html="formatDate(data.date)"></span>
         </span>&nbsp;
-        <span class="mh-meta-comments" v-if="data.comment_status === 'open'">
-          <i class="fa fa-comment-o"></i> <span class="mh-comment-count-link" v-html="getCommentsLength(data)"></span>
+        <span class="" v-if="data.comment_status === 'open'">
+          <i class="fa fa-comment-o"></i> <span class="" v-html="getCommentsLength(data)"></span>
         </span>
       </div>
-      <div v-if="index === 0" class="mh-excerpt">
-        <div v-html="data.excerpt.rendered"></div>
+      <div v-if="index === 0" class="">
+        <div v-html="data.excerpt.rendered" class="lh-copy"></div>
       </div>
     </div>
-  </li>
+  </div>
 </template>
 
 <script>
@@ -84,18 +84,5 @@ export default {
 </script>
 
 <style lang="css">
-h3.mh-custom-posts-xl-title {
-  font-family: 'Oswald';
-  text-transform: uppercase;
-  font-weight: normal;
-}
-h3.mh-custom-posts-small-title {
-  font-family: 'Oswald';
-  text-transform: uppercase;
-  font-weight: normal;
-  font-size: 1rem;
-}
-img.size-mh-magazine-small {
-  width: 80px;
-}
+
 </style>

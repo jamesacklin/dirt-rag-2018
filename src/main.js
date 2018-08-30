@@ -4,6 +4,8 @@ import Vue from 'vue'
 import Homepage from './Homepage'
 import router from './router'
 import store from './store'
+// eslint-disable-next-line
+import Tachyons from 'tachyons'
 
 Vue.config.productionTip = false
 

@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <div id="main-content" class="mh-content mh-home-content">
+    <div id="main-content" class="sans-serif">
 
       <FeaturedPost></FeaturedPost>
       <ContestSplice></ContestSplice>
@@ -115,50 +115,4 @@ export default {
 <style lang="css">
 @import url('https://fonts.googleapis.com/css?family=Oswald:500|Martel');
 
-* {
-  box-sizing: border-box;
-}
-
-body {
-  text-rendering: optimizeLegibility;
-}
-
-p {
-  font-family: "Martel"
-}
-
-.tag-unit {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.entry-title, .page-title {
-  font-family: 'Oswald';
-  text-transform: uppercase;
-  font-weight: normal;
-}
-
-.mh-excerpt-more {
-  color: #BE1E2D
-}
-
-.mh-excerpt-more:hover {
-  text-decoration: underline;
-}
-
-@media (min-width: 770px){
-  .home-grid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  .mh_magazine_custom_posts {
-    width: 48%;
-    margin: 0 1% 1rem;
-  }
-  .contest-splice {
-    width: 100%;
-    flex-grow: 1;
-  }
-}
 </style>
