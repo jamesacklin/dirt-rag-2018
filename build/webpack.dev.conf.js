@@ -74,6 +74,17 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       },
       chunksSortMode: 'dependency'
     }),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      inject: true,
+      templateContent: `<div id="homepage-vue-app"></div>`,
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+      },
+      chunksSortMode: 'dependency'
+    }),
     // copy custom static assets
     new CopyWebpackPlugin([
       {
