@@ -113,8 +113,13 @@ export default {
 </script>
 
 <style lang="css">
-@import url('https://fonts.googleapis.com/css?family=Oswald:500|Martel');
+@import url('https://fonts.googleapis.com/css?family=Oswald:500|Martel|Open+Sans');
 
 .oswald { font-family: "Oswald" }
 .serif { font-family: "Martel", georgia, times, serif;}
+.sans-serif { font-family: "Open Sans" }
+
+.red { color: #be1e2d }
+.hover-red:hover { color: #be1e2d }
+.bg-red { background-color: #be1e2d }
 </style>

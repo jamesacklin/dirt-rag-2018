@@ -4,7 +4,7 @@ import axios from 'axios'
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-const host = 'https://www.dirtragmag.com'
+const host = ''
 
 Vue.use(Vuex)
 

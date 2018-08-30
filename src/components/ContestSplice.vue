@@ -1,14 +1,14 @@
 <template lang="html">
-  <div class="contest-splice">
+  <div class="contest-splice pa3">
     <Spinner class="spinner" v-if="!postLoaded" key="spinner"></Spinner>
     <div v-if="postLoaded">
-      <figure v-on:click="navigateToPost">
-        <div class="contest-splice-image">
+      <figure class="ma0 pa3 shadow-1 pointer shadow-hover flex-m flex-l" v-on:click="navigateToPost">
+        <div class="contest-splice-image mb3 mb0-m mb0-l w-50-m w-third-l tc">
           <img :src="getFeaturedImage" alt="">
         </div>
-        <figcaption class="contest-splice-content">
-          <span class="contest-splice-badge">CONTEST</span>
-          <h1><a :href="post.link"><span v-html="post.title.rendered"></span></a></h1>
+        <figcaption class="contest-splice-content w-50-m pl3-m pl3-l">
+          <span class="dib ttu pa2 bg-red white sans-serif b f6">Contest</span>
+          <h1 class="oswald ttu mv3 lh-solid normal f2"><a class="link no-underline black hover-red" :href="post.link"><span v-html="post.title.rendered"></span></a></h1>
         </figcaption>
       </figure>
     </div>
