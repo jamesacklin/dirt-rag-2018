@@ -1,17 +1,15 @@
 <template lang="html">
-  <div>
-    <div class="featured-post">
-      <figure>
-        <a v-if="postLoaded" :href="post.link">
-          <img :srcset="srcset" :src="getFeaturedImage(post)" sizes="(max-width: 770px) 200px, 50vw">
-        </a>
-        <figcaption v-if="postLoaded">
-          <h1><a :href="post.link"><span v-html="post.title.rendered"></span></a></h1>
-          <p>by {{ post._embedded.author[0].name }}</p>
-        </figcaption>
-      </figure>
-      <div v-if="postLoaded" class="featured-post-excerpt" v-html="post.excerpt.rendered"></div>
-    </div>
+  <div class="featured-post">
+    <figure class="ma0 pa0 relative overflow-hidden">
+      <a v-if="postLoaded" :href="post.link">
+        <img :srcset="srcset" :src="getFeaturedImage(post)" sizes="(max-width: 770px) 200px, 50vw" class="w-100 grow">
+      </a>
+      <figcaption v-if="postLoaded" class="absolute w-100 bottom-0 ph3">
+        <h1 class="oswald ttu ma0 lh-solid normal f2 f1-m f1-l"><a class="link no-underline white dim" :href="post.link"><span v-html="post.title.rendered"></span></a></h1>
+        <p class="serif white">by {{ post._embedded.author[0].name }}</p>
+      </figcaption>
+    </figure>
+    <div v-if="postLoaded" class="featured-post-excerpt bg-near-white lh-copy serif ph3 pv2 f5 f4-l" v-html="post.excerpt.rendered"></div>
   </div>
 </template>
 
@@ -67,5 +65,20 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style scoped lang="css">
+
+figcaption {
+  text-shadow: 0 0.125em 0.5em rgba(0,0,0.65);
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.85) 100%);
+}
+
+>>> .featured-post-excerpt a {
+  color: #be1e2d;
+  text-decoration: none;
+}
+
+>>> .featured-post-excerpt a:hover {
+  text-decoration: underline;
+}
+
 </style>

@@ -115,4 +115,6 @@ export default {
 <style lang="css">
 @import url('https://fonts.googleapis.com/css?family=Oswald:500|Martel');
 
+.oswald { font-family: "Oswald" }
+.serif { font-family: "Martel", georgia, times, serif;}
 </style>

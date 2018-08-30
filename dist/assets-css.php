@@ -1,1 +1,1 @@
-<link href="<?php echo get_stylesheet_directory_uri() ?>/dist/static/css/app.d184950235228b2bd071c0e48df5b4bb.css" rel=stylesheet>
+<link href="<?php echo get_stylesheet_directory_uri() ?>/dist/static/css/app.7601542d4ab7807c7783980c4db43699.css" rel=stylesheet>
