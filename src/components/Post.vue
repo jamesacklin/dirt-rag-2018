@@ -1,21 +1,19 @@
 <template lang="html">
-  <div>
-    <figure :class="{'mh-custom-posts-thumb-xl' : index == 0, 'mh-custom-posts-thumb' : index != 0}">
-      <a class="mh-thumb-icon" :href="data.link">
+  <div :class="{'postlist-post postlist-post-first' : index == 0, 'postlist-post' : index != 0}" class="">
+    <figure :class="{'' : index == 0, '' : index != 0}" class="pa0 ma0">
+      <a class="" :href="data.link">
         <img
-        :class="{'attachment-mh-magazine-small size-mh-magazine-small wp-post-image' : index != 0}"
-        :srcset="srcset"
+        :class="{'w-100' : index != 0}"
         :src="getFeaturedImage(data)"
-        sizes="(max-width: 770px) 80px, (min-width: 770px) 100%"
         alt="">
       </a>
     </figure>
-    <div class="">
+    <div class="postlist-post-content">
       <div class="">
-        <h3 :class="{'mh-custom-posts-xl-title' : index == 0, 'mh-custom-posts-small-title' : index != 0}"><a :href="data.link"><span v-html="data.title.rendered"></span></a></h3>
+        <h3 :class="{'mh-custom-posts-xl-title' : index == 0, 'mh-custom-posts-small-title' : index != 0}" class="oswald ttu f3 normal lh-solid mt0 mb3"><a :href="data.link" class="black link no-underline hover-red"><span v-html="data.title.rendered"></span></a></h3>
       </div>
 
-      <div class="">
+      <div class="gray f6 sans-serif mb3">
         <span class="">
           <i class="fa fa-clock-o"></i> <span v-html="formatDate(data.date)"></span>
         </span>&nbsp;
@@ -23,8 +21,8 @@
           <i class="fa fa-comment-o"></i> <span class="" v-html="getCommentsLength(data)"></span>
         </span>
       </div>
-      <div v-if="index === 0" class="">
-        <div v-html="data.excerpt.rendered" class="lh-copy"></div>
+      <div v-if="index === 0" class="postlist-post-excerpt">
+        <div v-html="data.excerpt.rendered" class="serif black lh-copy"></div>
       </div>
     </div>
   </div>
@@ -84,5 +82,53 @@ export default {
 </script>
 
 <style lang="css">
+.postlist-post {
+  margin-bottom: 1rem;
+  display: flex;
+}
 
+.postlist-post-first {
+  flex-direction: row;
+}
+
+.postlist-post figure {
+  width: 25%;
+}
+
+.postlist-post-content {
+  width: 75%;
+  padding-left: 1rem;
+}
+
+.postlist-post-first .postlist-post-excerpt {
+  display: none;
+}
+
+
+@media (min-width: 600px){
+  .postlist-post-first {
+    flex-direction: column;
+  }
+  .postlist-post-first figure,
+  .postlist-post-first .postlist-post-content {
+    width: 100%;
+    padding: 0;
+  }
+  .postlist-post-first figure {
+    margin-bottom: 1rem;
+  }
+  .postlist-post-first .postlist-post-excerpt {
+    display: block;
+  }
+}
+
+
+.postlist-post-excerpt a {
+  color: #be1e2d;
+  text-decoration: none;
+}
+
+.postlist-post-excerpt a:hover {
+  text-decoration: underline;
+}
 </style>
