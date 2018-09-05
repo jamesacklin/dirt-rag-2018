@@ -5,7 +5,7 @@
         <img :srcset="srcset" :src="getFeaturedImage(post)" sizes="(max-width: 770px) 200px, 50vw" class="w-100 grow">
       </a>
       <figcaption v-if="postLoaded" class="absolute w-100 bottom-0 ph3">
-        <h1 class="oswald ttu ma0 lh-solid normal f2 f1-m f1-l"><a class="link no-underline white dim" :href="post.link"><span v-html="post.title.rendered"></span></a></h1>
+        <h1 class="oswald ttu ma0 lh-solid normal f2 f1-m f1-l"><a class="link no-underline white hover-red" :href="post.link"><span v-html="post.title.rendered"></span></a></h1>
         <p class="serif white">by {{ post._embedded.author[0].name }}</p>
       </figcaption>
     </figure>

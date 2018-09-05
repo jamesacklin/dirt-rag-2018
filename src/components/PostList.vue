@@ -1,10 +1,10 @@
 <template lang="html">
-  <div class="">
+  <div class="ph3">
     <h4 class="mh-widget-title">
       <span class="mh-widget-title-inner>">
         <span v-if="!categoryName">&nbsp;</span>
-        <a v-if="categoryName" :href="'/category/' + category + '/'">
-          <span v-html="categoryName"></span> <i class="fa fa-arrow-right"></i>
+        <a class="oswald db ttu pa3 bg-red white normal f4 no-underline hover-bg-black" v-if="categoryName" :href="'/category/' + category + '/'">
+          <span v-html="categoryName"></span> <i class="fa fa-arrow-right fr"></i>
         </a>
       </span>
     </h4>
@@ -13,11 +13,11 @@
       <Post v-for="(post, index) in postArray" :key="index" :postdata="post" :index="index"></Post>
     </div>
     <div v-if="postsLoaded">
-      <button class="action-button" v-if="counter < 6" v-on:click="increment">
-        <span class=""><i class="fa fa-chevron-down"></i> More {{ categoryName }}</span>
+      <button class="input-reset action-button" v-if="counter < 6" v-on:click="increment">
+        <span class="">More {{ categoryName }} <i class="fa fa-chevron-down fr"></i> </span>
       </button>
       <a :href="'/category/' + category + '/'" class="action-button" v-if="counter >= 6">
-        <span class="">See All {{ categoryName }} <i class="fa fa-arrow-right"></i></span>
+        <span class="">See All {{ categoryName }} <i class="fa fa-arrow-right fr"></i></span>
       </a>
     </div>
   </div>
@@ -73,4 +73,21 @@ export default {
 </script>
 
 <style lang="css">
+.action-button {
+  color: black;
+  background: white;
+  border: 2px solid black;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: "Oswald";
+}
+.action-button:hover {
+  border-color: #be1e2d;
+  color: #be1e2d;
+}
 </style>

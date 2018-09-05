@@ -1,10 +1,13 @@
 <template lang="html">
   <div :class="{'postlist-post postlist-post-first' : index == 0, 'postlist-post' : index != 0}" class="">
     <figure :class="{'' : index == 0, '' : index != 0}" class="pa0 ma0">
-      <a class="" :href="data.link">
+      <a class="db relative overflow-hidden" :href="data.link">
         <img
         :class="{'w-100' : index != 0}"
+        :srcset="srcset"
+        sizes="150w, (min-width: 800px) 320w"
         :src="getFeaturedImage(data)"
+        class="grow"
         alt="">
       </a>
     </figure>
@@ -63,7 +66,6 @@ export default {
     srcset: function () {
       if (this.index === 0 && typeof this.data._embedded['wp:featuredmedia'] !== 'undefined') {
         return [
-          this.data._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url + ' 150w',
           this.data._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url + ' 320w'
         ].join(', ')
       } else if (this.index !== 0 && typeof this.data._embedded['wp:featuredmedia'] !== 'undefined') {
@@ -104,7 +106,6 @@ export default {
   display: none;
 }
 
-
 @media (min-width: 600px){
   .postlist-post-first {
     flex-direction: column;
@@ -121,7 +122,6 @@ export default {
     display: block;
   }
 }
-
 
 .postlist-post-excerpt a {
   color: #be1e2d;

@@ -7,7 +7,7 @@
           <img :src="getFeaturedImage" alt="">
         </div>
         <figcaption class="contest-splice-content w-50-m pl3-m pl3-l">
-          <span class="dib ttu pa2 bg-red white sans-serif b f6">Contest</span>
+          <span class="dib ttu pa2 bg-red white oswald f5">Contest</span>
           <h1 class="oswald ttu mv3 lh-solid normal f2"><a class="link no-underline black hover-red" :href="post.link"><span v-html="post.title.rendered"></span></a></h1>
         </figcaption>
       </figure>
