@@ -9,7 +9,7 @@
         <p class="serif white">by {{ post._embedded.author[0].name }}</p>
       </figcaption>
     </figure>
-    <div v-if="postLoaded" class="featured-post-excerpt bg-near-white lh-copy serif ph3 pv2 f5 f4-l" v-html="post.excerpt.rendered"></div>
+    <div v-if="postLoaded" class="featured-post-excerpt bg-near-white lh-copy serif pa3 f5" v-html="post.excerpt.rendered"></div>
   </div>
 </template>
 

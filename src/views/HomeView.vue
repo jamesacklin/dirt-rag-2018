@@ -1,7 +1,6 @@
 <template lang="html">
-  <div>
-    <div id="main-content" class="sans-serif">
-
+  <div class="home-page">
+    <div class="home-content sans-serif">
       <FeaturedPost></FeaturedPost>
       <ContestSplice></ContestSplice>
       <!-- <div id="div-gpt-ad-1487038544877-10" data-google-query-id="CM-Y4cjU4NwCFYmnaQodOWEORQ"></div> -->
@@ -52,7 +51,7 @@
         </div>
       </div>
     </div>
-    <div v-if="!isMobile" class="mh-widget-col-1 mh-sidebar mh-home-sidebar mh-home-area-6">
+    <div v-if="!isMobile" class="home-sidebar">
       <div class="tag-unit">
         <div id='div-gpt-ad-1487038544877-0'></div>
       </div>
@@ -124,10 +123,26 @@ export default {
 .hover-red:hover { color: #be1e2d }
 .bg-red { background-color: #be1e2d }
 
+
+
 @media (min-width: 800px){
-  .home-grid {
+  .home-page {
+    display: flex;
+  }
+  .home-content {
+    width: 75%;
+    padding-right: 1rem;
+  }
+  .home-sidebar {
+    width: 25%;
+    min-width: 300px;
+  }
+  .home-content .home-grid {
     display: grid;
     grid-template-columns: 50% 50%;
+  }
+  .tag-unit {
+    margin-bottom: 1rem;
   }
 }
 </style>

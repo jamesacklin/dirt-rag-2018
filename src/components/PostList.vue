@@ -1,9 +1,9 @@
 <template lang="html">
-  <div class="ph3">
-    <h4 class="mh-widget-title">
-      <span class="mh-widget-title-inner>">
+  <div class="ph3 mb3">
+    <h4 class="mb3">
+      <span class="">
         <span v-if="!categoryName">&nbsp;</span>
-        <a class="oswald db ttu pa3 bg-red white normal f4 no-underline hover-bg-black" v-if="categoryName" :href="'/category/' + category + '/'">
+        <a class="oswald db ttu pa2 bg-red white normal f4 no-underline hover-bg-black" v-if="categoryName" :href="'/category/' + category + '/'">
           <span v-html="categoryName"></span> <i class="fa fa-arrow-right fr"></i>
         </a>
       </span>
