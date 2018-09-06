@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="ph3 mb3">
+  <div class="mb3">
     <h4 class="mb3">
       <span class="">
         <span v-if="!categoryName">&nbsp;</span>

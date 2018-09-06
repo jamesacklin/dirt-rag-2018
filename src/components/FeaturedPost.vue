@@ -6,7 +6,7 @@
       </a>
       <figcaption v-if="postLoaded" class="absolute w-100 bottom-0 ph3">
         <h1 class="oswald ttu ma0 lh-solid normal f2 f1-m f1-l"><a class="link no-underline white hover-red" :href="post.link"><span v-html="post.title.rendered"></span></a></h1>
-        <p class="serif white">by {{ post._embedded.author[0].name }}</p>
+        <p class="serif white mv3">by {{ post._embedded.author[0].name }}</p>
       </figcaption>
     </figure>
     <div v-if="postLoaded" class="featured-post-excerpt bg-near-white lh-copy serif pa3 f5" v-html="post.excerpt.rendered"></div>
@@ -70,6 +70,10 @@ export default {
 figcaption {
   text-shadow: 0 0.125em 0.5em rgba(0,0,0.65);
   background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.85) 100%);
+}
+
+>>> .featured-post-excerpt p {
+  margin: 0;
 }
 
 >>> .featured-post-excerpt a {

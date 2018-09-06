@@ -123,8 +123,6 @@ export default {
 .hover-red:hover { color: #be1e2d }
 .bg-red { background-color: #be1e2d }
 
-
-
 @media (min-width: 800px){
   .home-page {
     display: flex;
@@ -139,7 +137,8 @@ export default {
   }
   .home-content .home-grid {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: auto auto;
+    grid-column-gap: 1rem;
   }
   .tag-unit {
     margin-bottom: 1rem;

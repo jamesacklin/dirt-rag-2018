@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="contest-splice pa3">
+  <div class="contest-splice mv3">
     <Spinner class="spinner" v-if="!postLoaded" key="spinner"></Spinner>
     <div v-if="postLoaded">
       <figure class="ma0 pa3 shadow-1 pointer shadow-hover flex-m flex-l" v-on:click="navigateToPost">
