@@ -1,6 +1,12 @@
 <template lang="html">
   <div class="home-page">
     <div class="home-content sans-serif">
+      <div class="tag-unit" v-if="!isMobile">
+        <div id="div-gpt-ad-1487038544877-8"></div>
+      </div>
+      <div class="tag-unit" v-if="isMobile">
+        <div id="div-gpt-ad-1487038544877-10"></div>
+      </div>
       <FeaturedPost></FeaturedPost>
       <ContestSplice></ContestSplice>
       <!-- <div id="div-gpt-ad-1487038544877-10" data-google-query-id="CM-Y4cjU4NwCFYmnaQodOWEORQ"></div> -->
