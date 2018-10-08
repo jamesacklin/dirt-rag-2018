@@ -4,16 +4,40 @@
       <FeaturedPost></FeaturedPost>
       <ContestSplice></ContestSplice>
       <div class="home-grid">
+        <div v-if="isMobile" class="tag-unit">
+          <div id='div-gpt-ad-1487038544877-0'></div>
+        </div>
+        <div v-if="isMobile" class="tag-unit">
+          <div id='div-gpt-ad-1487038544877-1'></div>
+        </div>
         <PostList category="gear"></PostList>
+        <div v-if="isMobile" class="tag-unit">
+          <div id='div-gpt-ad-1487038544877-2'></div>
+        </div>
         <PostList category="feature"></PostList>
+        <div v-if="isMobile" class="tag-unit">
+          <div id='div-gpt-ad-1487038544877-3'></div>
+        </div>
         <PostList category="news"></PostList>
+        <div v-if="isMobile" class="tag-unit">
+          <div id='div-gpt-ad-1487038544877-4'></div>
+        </div>
         <PostList category="video"></PostList>
+        <div v-if="isMobile" class="tag-unit">
+          <div id='div-gpt-ad-1487038544877-5'></div>
+        </div>
         <PostList category="featured-ride"></PostList>
+        <div v-if="isMobile" class="tag-unit">
+          <div id='div-gpt-ad-1487038544877-6'></div>
+        </div>
         <PostList category="opinion"></PostList>
+        <div v-if="isMobile" class="tag-unit">
+          <div id='div-gpt-ad-1487038544877-7'></div>
+        </div>
       </div>
     </div>
     <div v-if="!isMobile" class="home-sidebar">
-      <div v-bind:key="slot.id" v-for="slot in this.$store.state.advertising.slots">
+      <div class="tag-unit" v-bind:key="slot.id" v-for="slot in this.$store.state.advertising.slots">
         <div :id="slot.id"></div>
       </div>
     </div>
@@ -99,8 +123,8 @@ export default {
     padding: 1rem;
   }
   .mh-container .home-content {
-    width: 75%;
-    padding-right: 1rem;
+    width: 73%;
+    padding-right: 2%;
   }
   .home-sidebar {
     width: 300px;
@@ -112,6 +136,7 @@ export default {
   }
   .tag-unit {
     margin-bottom: 1rem;
+    text-align: center;
   }
 }
 </style>

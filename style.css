@@ -10,4 +10,37 @@ License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 *****/
 
-/* Leave this file empty, you should be styling vue components. */
+/* These are overrides for the still-existing PHP pages. */
+h1, h2, h3 {
+  font-family: 'Oswald';
+  text-transform: uppercase;
+  font-weight: normal;
+}
+h3.mh-custom-posts-small-title {
+  font-size: 1rem;
+}
+img.size-mh-magazine-small {
+  width: 80px;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+}
+p {
+  font-family: "Martel"
+}
+.tag-unit {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.entry-title, .page-title {
+  font-family: 'Oswald';
+  text-transform: uppercase;
+  font-weight: normal;
+}
+.mh-excerpt-more {
+  color: #BE1E2D
+}
+.mh-excerpt-more:hover {
+  text-decoration: underline;
+}
