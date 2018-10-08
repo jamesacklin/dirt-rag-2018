@@ -47,9 +47,6 @@ module.exports = {
   build: {
     // Template for index.html
     index: path.resolve(__dirname, '../dist/index.html'),
-    homephpfile: path.resolve(__dirname, '../dist/homepage-vue.php'),
-    assetscss: path.resolve(__dirname, '../dist/assets-css.php'),
-    assetsjs: path.resolve(__dirname, '../dist/assets-js.php'),
 
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),

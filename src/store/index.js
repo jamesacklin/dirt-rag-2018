@@ -4,8 +4,8 @@ import axios from 'axios'
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-// const host = 'https://dirtragmag.com'
-const host = ''
+const host = 'https://dirtragmag.com'
+// const host = ''
 
 Vue.use(Vuex)
 
