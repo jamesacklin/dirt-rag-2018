@@ -16,6 +16,7 @@
     "mobile-detect": "^1.4.2",
     "tachyons": "^4.11.1",
     "vue": "^2.5.2",
+    "vue-doubleclick": "^1.0.3",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },

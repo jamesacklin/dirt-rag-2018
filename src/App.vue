@@ -1,6 +1,10 @@
 <template>
   <div id="App">
-    <router-view/>
+    <div class="content-view">
+      <router-view/>
+    </div>
+    <div class="ad-sidebar">
+    </div>
   </div>
 </template>
 
@@ -21,4 +25,15 @@ export default {
 .red { color: #be1e2d }
 .hover-red:hover { color: #be1e2d }
 .bg-red { background-color: #be1e2d }
+
+.content-view {
+  width: 75%;
+  float: left;
+}
+
+.ad-sidebar {
+  width: 25%;
+  float: left;
+}
+
 </style>
