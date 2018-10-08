@@ -1,14 +1,14 @@
 <template lang="html">
-  <div class="contest-splice">
+  <div class="contest-splice mv3">
     <Spinner class="spinner" v-if="!postLoaded" key="spinner"></Spinner>
     <div v-if="postLoaded">
-      <figure v-on:click="navigateToPost">
-        <div class="contest-splice-image">
+      <figure class="ma0 pa3 shadow-1 pointer shadow-hover flex-m flex-l" v-on:click="navigateToPost">
+        <div class="contest-splice-image mb3 mb0-m mb0-l w-50-m w-third-l tc">
           <img :src="getFeaturedImage" alt="">
         </div>
-        <figcaption class="contest-splice-content">
-          <span class="contest-splice-badge">CONTEST</span>
-          <h1><a :href="post.link"><span v-html="post.title.rendered"></span></a></h1>
+        <figcaption class="contest-splice-content w-50-m pl3-m pl3-l">
+          <span class="dib ttu pa2 bg-red white oswald f5">Contest</span>
+          <h1 class="oswald ttu mv3 lh-solid normal f2"><a class="link no-underline black hover-red" :href="post.link"><span v-html="post.title.rendered"></span></a></h1>
         </figcaption>
       </figure>
     </div>
@@ -58,54 +58,5 @@ export default {
 </script>
 
 <style lang="css">
-.contest-splice {
-  margin: 1rem 0;
-  padding: 0 0.5rem;
-}
-.contest-splice figure {
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.25);
-  transition: all 0.2s ease;
-}
-.contest-splice figure:hover {
-  box-shadow: 0 0.25rem 0.6rem rgba(0,0,0,0.3);
-  transform: translateY(-0.125rem);
-}
-.contest-splice figure .contest-splice-content {
-  margin-top: 1rem;
-}
-.contest-splice h1 {
-  font-family: 'Oswald';
-  text-transform: uppercase;
-  font-size: 2rem;
-  line-height: 1em;
-  margin-bottom: 0.25em;
-  font-weight: normal;
-  letter-spacing: -0.025em;
-}
-.contest-splice-badge {
-  font-size: 80%;
-  display: inline-block;
-  color: #fff;
-  padding: 0.625em 0.9375em;
-  margin-bottom: 1rem;
-  background: #be1e2d;
-  font-weight: bold;
-}
-@media (min-width: 650px){
-  .contest-splice figure {
-    flex-direction: row;
-  }
-  .contest-splice figure .contest-splice-image {
-    width: 33.33333%;
-  }
-  .contest-splice figure .contest-splice-content {
-    margin-top: 0;
-    margin-left: 1rem;
-    width: 66.6666%;
-  }
-}
+
 </style>

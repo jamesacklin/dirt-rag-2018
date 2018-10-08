@@ -77,7 +77,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       inject: true,
-      templateContent: `<div id="homepage-vue-app"></div>`,
+      template: './build/templates/index.html',
       minify: {
         removeComments: true,
         collapseWhitespace: true,

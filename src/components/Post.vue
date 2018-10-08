@@ -1,33 +1,34 @@
 <template lang="html">
-  <li class="mh-custom-posts-item clearfix">
-    <figure :class="{'mh-custom-posts-thumb-xl' : index == 0, 'mh-custom-posts-thumb' : index != 0}">
-      <a class="mh-thumb-icon" :href="data.link">
+  <div :class="{'postlist-post postlist-post-first' : index == 0, 'postlist-post' : index != 0}" class="">
+    <figure :class="{'' : index == 0, '' : index != 0}" class="pa0 ma0">
+      <a class="db relative overflow-hidden" :href="data.link">
         <img
-        :class="{'attachment-mh-magazine-small size-mh-magazine-small wp-post-image' : index != 0}"
+        :class="{'w-100' : index != 0}"
         :srcset="srcset"
+        sizes="150w, (min-width: 800px) 320w"
         :src="getFeaturedImage(data)"
-        sizes="(max-width: 770px) 80px, (min-width: 770px) 100%"
+        class="grow"
         alt="">
       </a>
     </figure>
-    <div class="mh-custom-posts-content">
-      <div class="mh-custom-posts-header">
-        <h3 :class="{'mh-custom-posts-xl-title' : index == 0, 'mh-custom-posts-small-title' : index != 0}"><a :href="data.link"><span v-html="data.title.rendered"></span></a></h3>
+    <div class="postlist-post-content">
+      <div class="">
+        <h3 :class="{'mh-custom-posts-xl-title' : index == 0, 'mh-custom-posts-small-title' : index != 0}" class="oswald ttu f3 normal lh-solid mt0 mb3"><a :href="data.link" class="black link no-underline hover-red"><span v-html="data.title.rendered"></span></a></h3>
       </div>
 
-      <div class="mh-meta mh-custom-posts-meta">
-        <span class="mh-meta-date updated">
+      <div class="gray f6 sans-serif mb3">
+        <span class="">
           <i class="fa fa-clock-o"></i> <span v-html="formatDate(data.date)"></span>
         </span>&nbsp;
-        <span class="mh-meta-comments" v-if="data.comment_status === 'open'">
-          <i class="fa fa-comment-o"></i> <span class="mh-comment-count-link" v-html="getCommentsLength(data)"></span>
+        <span class="" v-if="data.comment_status === 'open'">
+          <i class="fa fa-comment-o"></i> <span class="" v-html="getCommentsLength(data)"></span>
         </span>
       </div>
-      <div v-if="index === 0" class="mh-excerpt">
-        <div v-html="data.excerpt.rendered"></div>
+      <div v-if="index === 0" class="postlist-post-excerpt">
+        <div v-html="data.excerpt.rendered" class="serif black lh-copy"></div>
       </div>
     </div>
-  </li>
+  </div>
 </template>
 
 <script>
@@ -65,7 +66,6 @@ export default {
     srcset: function () {
       if (this.index === 0 && typeof this.data._embedded['wp:featuredmedia'] !== 'undefined') {
         return [
-          this.data._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url + ' 150w',
           this.data._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url + ' 320w'
         ].join(', ')
       } else if (this.index !== 0 && typeof this.data._embedded['wp:featuredmedia'] !== 'undefined') {
@@ -84,18 +84,51 @@ export default {
 </script>
 
 <style lang="css">
-h3.mh-custom-posts-xl-title {
-  font-family: 'Oswald';
-  text-transform: uppercase;
-  font-weight: normal;
+.postlist-post {
+  margin-bottom: 1rem;
+  display: flex;
 }
-h3.mh-custom-posts-small-title {
-  font-family: 'Oswald';
-  text-transform: uppercase;
-  font-weight: normal;
-  font-size: 1rem;
+
+.postlist-post-first {
+  flex-direction: row;
 }
-img.size-mh-magazine-small {
-  width: 80px;
+
+.postlist-post figure {
+  width: 25%;
+}
+
+.postlist-post-content {
+  width: 75%;
+  padding-left: 1rem;
+}
+
+.postlist-post-first .postlist-post-excerpt {
+  display: none;
+}
+
+@media (min-width: 600px){
+  .postlist-post-first {
+    flex-direction: column;
+  }
+  .postlist-post-first figure,
+  .postlist-post-first .postlist-post-content {
+    width: 100%;
+    padding: 0;
+  }
+  .postlist-post-first figure {
+    margin-bottom: 1rem;
+  }
+  .postlist-post-first .postlist-post-excerpt {
+    display: block;
+  }
+}
+
+.postlist-post-excerpt a {
+  color: #be1e2d;
+  text-decoration: none;
+}
+
+.postlist-post-excerpt a:hover {
+  text-decoration: underline;
 }
 </style>

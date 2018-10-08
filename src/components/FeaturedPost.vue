@@ -1,17 +1,15 @@
 <template lang="html">
-  <div>
-    <div class="featured-post">
-      <figure>
-        <a v-if="postLoaded" :href="post.link">
-          <img :srcset="srcset" :src="getFeaturedImage(post)" sizes="(max-width: 770px) 200px, 50vw">
-        </a>
-        <figcaption v-if="postLoaded">
-          <h1><a :href="post.link"><span v-html="post.title.rendered"></span></a></h1>
-          <p>by {{ post._embedded.author[0].name }}</p>
-        </figcaption>
-      </figure>
-      <div v-if="postLoaded" class="featured-post-excerpt" v-html="post.excerpt.rendered"></div>
-    </div>
+  <div class="featured-post">
+    <figure class="ma0 pa0 relative overflow-hidden">
+      <a v-if="postLoaded" :href="post.link">
+        <img :srcset="srcset" :src="getFeaturedImage(post)" sizes="(max-width: 770px) 200px, 50vw" class="w-100 grow">
+      </a>
+      <figcaption v-if="postLoaded" class="absolute w-100 bottom-0 ph3">
+        <h1 class="oswald ttu ma0 lh-solid normal f2 f1-m f1-l"><a class="link no-underline white hover-red" :href="post.link"><span v-html="post.title.rendered"></span></a></h1>
+        <p class="serif white mv3">by {{ post._embedded.author[0].name }}</p>
+      </figcaption>
+    </figure>
+    <div v-if="postLoaded" class="featured-post-excerpt bg-near-white lh-copy serif pa3 f5" v-html="post.excerpt.rendered"></div>
   </div>
 </template>
 
@@ -67,66 +65,24 @@ export default {
 }
 </script>
 
-<style lang="css">
-.featured-post {
-  margin-bottom: 1rem;
-}
-.featured-post figure {
-  height: 0;
-  width: 100%;
-  overflow: hidden;
-  padding-bottom: 50%;
-  position: relative;
-  background: #222;
-}
-.featured-post figure img {
-  width: 100%;
-  transform-origin: center;
-  transition: all 0.25s ease;
-  position: absolute;
-  top: 50%; left: 0;
-  transform: translateY(-50%);
-}
-.featured-post figure:hover img {
-  transform: scale(1.125) translateY(-45%);
-  opacity: 0.8;
-}
-.featured-post figure figcaption {
-  position: absolute;
-  color: white;
-  bottom: 0px;
-  width: 100%;
-  padding: 1.05rem;
+<style scoped lang="css">
+
+figcaption {
   text-shadow: 0 0.125em 0.5em rgba(0,0,0.65);
   background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.85) 100%);
 }
-.featured-post h1 {
-  font-family: 'Oswald';
-  text-transform: uppercase;
-  font-size: 2rem;
-  line-height: 1em;
-  margin-bottom: 0.25em;
-  font-weight: normal;
-  letter-spacing: -0.025em;
-}
-.featured-post figure figcaption h1 a {
-  color: white;
+
+>>> .featured-post-excerpt p {
+  margin: 0;
 }
 
-.featured-post-excerpt {
-  background: #F7F7F7;
-  padding: 1rem;
+>>> .featured-post-excerpt a {
+  color: #be1e2d;
+  text-decoration: none;
 }
 
-@media (min-width: 770px){
-  .featured-post-excerpt {
-    padding: 1.05rem;
-  }
-  .featured-post-excerpt p {
-    font-size: 1.05rem;
-  }
-  .featured-post h1 {
-    font-size: 3rem;
-  }
+>>> .featured-post-excerpt a:hover {
+  text-decoration: underline;
 }
+
 </style>
