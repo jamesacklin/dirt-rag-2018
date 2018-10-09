@@ -3,9 +3,9 @@
     <h4 class="mb3">
       <span class="">
         <span v-if="!categoryName">&nbsp;</span>
-        <a class="oswald db ttu pa2 bg-red white normal f4 no-underline hover-bg-black" v-if="categoryName" :href="'/category/' + category + '/'">
+        <router-link :to="{ name: 'category', params: { cat_id: this.category } }" class="oswald db ttu pa2 bg-red white normal f4 no-underline hover-bg-black" v-if="categoryName">
           <span v-html="categoryName"></span> <i class="fa fa-arrow-right fr"></i>
-        </a>
+        </router-link>
       </span>
     </h4>
     <Spinner class="spinner" v-if="!postsLoaded" key="spinner"></Spinner>
@@ -16,9 +16,9 @@
       <button class="input-reset action-button" v-if="counter < 6" v-on:click="increment">
         <span class="">More {{ categoryName }} <i class="fa fa-chevron-down fr"></i> </span>
       </button>
-      <a :href="'/category/' + category + '/'" class="action-button" v-if="counter >= 6">
+      <router-link :to="{ name: 'category', params: { cat_id: this.category } }" class="action-button" v-if="counter >= 6">
         <span class="">See All {{ categoryName }} <i class="fa fa-arrow-right fr"></i></span>
-      </a>
+      </router-link>
     </div>
   </div>
 </template>

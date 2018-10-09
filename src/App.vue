@@ -1,27 +1,6 @@
 <template>
   <div id="App">
-    <header role="banner">
-      <img src="https://dirtragmag.com/wp-content/uploads/Web-Header-Logo-207.jpg" alt="Dirt Rag Magazine">
-      <div class="leaderboard">
-        <google-ad v-if="!isMobile" unit="DR_Leaderboard" id="div-gpt-ad-1487038544877-8" size="banner"></google-ad>
-        <google-ad v-if="isMobile" unit="DR_Mobile_Leaderboard" id="div-gpt-ad-1487038544877-10" size="banner"></google-ad>
-      </div>
-    </header>
-    <div class="content-view">
-      <router-view/>
-    </div>
-    <div class="ad-sidebar">
-      <google-ad unit="DR_300x250_Square1" id="div-gpt-ad-1487038544877-0" size="rectangle"></google-ad>
-      <google-ad unit="DR_300x250_Square2" id="div-gpt-ad-1487038544877-1" size="rectangle"></google-ad>
-      <google-ad unit="DR_300x250_Square3" id="div-gpt-ad-1487038544877-2" size="rectangle"></google-ad>
-      <google-ad unit="DR_300x250_Square4" id="div-gpt-ad-1487038544877-3" size="rectangle"></google-ad>
-      <google-ad unit="DR_300x250_Square5" id="div-gpt-ad-1487038544877-4" size="rectangle"></google-ad>
-      <google-ad unit="DR_300x250_Square6" id="div-gpt-ad-1487038544877-5" size="rectangle"></google-ad>
-      <google-ad unit="DR_300x250_Square7" id="div-gpt-ad-1487038544877-6" size="rectangle"></google-ad>
-      <google-ad unit="DR_300x250_Square8" id="div-gpt-ad-1487038544877-7" size="rectangle"></google-ad>
-      <google-ad unit="DR_300x250_SquareNine" id="div-gpt-ad-1525210305082-0" size="rectangle"></google-ad>
-      <google-ad unit="DR_300x250_SquareTen" id="div-gpt-ad-1525213375178-0" size="rectangle"></google-ad>
-    </div>
+    <router-view/>
   </div>
 </template>
 
