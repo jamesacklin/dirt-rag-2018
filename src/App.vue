@@ -51,9 +51,9 @@ export default {
 .serif { font-family: "Martel", georgia, times, serif;}
 .sans-serif { font-family: "Open Sans" }
 
-.red { color: #be1e2d }
-.hover-red:hover { color: #be1e2d }
-.bg-red { background-color: #be1e2d }
+.red { color: #be1e2d !important }
+.hover-red:hover { color: #be1e2d !important }
+.bg-red { background-color: #be1e2d !important }
 
 .content-view {
   width: calc(100% - 300px - 1rem);
