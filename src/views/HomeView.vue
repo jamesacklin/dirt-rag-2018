@@ -47,16 +47,17 @@ export default {
 @media (min-width: 800px){
   .home-content {
     width: auto;
-    padding: 1rem;
+    padding: 0 1rem;
   }
   .home-content .home-grid {
     display: grid;
     grid-template-columns: auto auto;
     grid-column-gap: 1rem;
   }
-  .tag-unit {
-    margin-bottom: 1rem;
-    text-align: center;
+}
+@media (min-width: 1200px){
+  .home-content .home-grid {
+    grid-template-columns: auto auto auto;
   }
 }
 </style>
