@@ -8,7 +8,7 @@
         </div>
         <figcaption class="contest-splice-content w-50-m pl3-m pl3-l">
           <span class="dib ttu pa2 bg-red white oswald f5">Contest</span>
-          <h1 class="oswald ttu mv3 lh-solid normal f2"><a class="link no-underline black hover-red" :href="post.link"><span v-html="post.title.rendered"></span></a></h1>
+          <h1 class="oswald ttu mv3 lh-solid normal f2"><a class="link no-underline black hover-red" :href="$store.state.posts.contests[0].link"><span v-html="$store.state.posts.contests[0].title.rendered"></span></a></h1>
         </figcaption>
       </figure>
     </div>
@@ -26,14 +26,13 @@ export default {
   },
   data () {
     return {
-      postLoaded: false,
-      post: []
+      postLoaded: false
     }
   },
   computed: {
     getFeaturedImage: function () {
-      if (typeof this.post._embedded['wp:featuredmedia'] !== 'undefined') {
-        return this.post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url
+      if (typeof this.$store.state.posts.contests[0]._embedded['wp:featuredmedia'] !== 'undefined') {
+        return this.$store.state.posts.contests[0]._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url
       } else {
         return themepath + '/static/post-default-medium.png'
       }
@@ -46,13 +45,16 @@ export default {
     }
   },
   created () {
-    this.$store.dispatch('getWpCat', { category: 'contests', perpage: 1 })
-    this.$store.subscribe((mutation, state) => {
-      if (mutation.type === 'storePosts' && mutation.payload.category === 'contests') {
-        this.post = state.posts.contests[0]
-        this.postLoaded = true
-      }
-    })
+    if (this.$store.state.posts.contests) {
+      this.postLoaded = true
+    } else {
+      this.$store.dispatch('getWpCat', { category: 'contests', perpage: 1 })
+      this.$store.subscribe((mutation, state) => {
+        if (mutation.type === 'storePosts' && mutation.payload.category === 'contests') {
+          this.postLoaded = true
+        }
+      })
+    }
   }
 }
 </script>

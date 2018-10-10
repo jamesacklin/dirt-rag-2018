@@ -1,15 +1,15 @@
 <template lang="html">
   <div class="featured-post">
     <figure class="ma0 pa0 relative overflow-hidden">
-      <a v-if="postLoaded" :href="post.link">
-        <img :srcset="srcset" :src="getFeaturedImage(post)" sizes="(max-width: 770px) 200px, 50vw" class="w-100 grow">
+      <a v-if="postLoaded" :href="$store.state.featuredPost.postData.data.link">
+        <img :srcset="srcset" :src="getFeaturedImage($store.state.featuredPost.postData.data)" sizes="(max-width: 770px) 200px, 50vw" class="w-100 grow">
       </a>
       <figcaption v-if="postLoaded" class="absolute w-100 bottom-0 ph3">
-        <h1 class="oswald ttu ma0 lh-solid normal f2 f1-m f1-l"><a class="link no-underline white hover-red" :href="post.link"><span v-html="post.title.rendered"></span></a></h1>
-        <p class="serif white mv3">by {{ post._embedded.author[0].name }}</p>
+        <h1 class="oswald ttu ma0 lh-solid normal f2 f1-m f1-l"><a class="link no-underline white hover-red" :href="$store.state.featuredPost.postData.data.link"><span v-html="$store.state.featuredPost.postData.data.title.rendered"></span></a></h1>
+        <p class="serif white mv3">by {{ $store.state.featuredPost.postData.data._embedded.author[0].name }}</p>
       </figcaption>
     </figure>
-    <div v-if="postLoaded" class="featured-post-excerpt bg-near-white lh-copy serif pa3 f5" v-html="post.excerpt.rendered"></div>
+    <div v-if="postLoaded" class="featured-post-excerpt bg-near-white lh-copy serif pa3 f5" v-html="$store.state.featuredPost.postData.data.excerpt.rendered"></div>
   </div>
 </template>
 
@@ -24,18 +24,17 @@ export default {
   },
   data () {
     return {
-      post: [],
       postLoaded: false
     }
   },
   computed: {
     srcset: function () {
       // FIXME: Make this reference the store, but keep the functionality here
-      if (typeof this.post._embedded['wp:featuredmedia'] !== 'undefined') {
+      if (typeof this.$store.state.featuredPost.postData.data._embedded['wp:featuredmedia'] !== 'undefined') {
         return [
-          this.post._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url + ' 150w',
-          this.post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url + ' 320w',
-          this.post._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ' 600w'
+          this.$store.state.featuredPost.postData.data._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url + ' 150w',
+          this.$store.state.featuredPost.postData.data._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url + ' 320w',
+          this.$store.state.featuredPost.postData.data._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ' 600w'
         ].join(', ')
       } else {
         return [
@@ -47,22 +46,24 @@ export default {
   },
   methods: {
     getFeaturedImage: function (post) {
-      if (typeof this.post._embedded['wp:featuredmedia'] !== 'undefined') {
-        return post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url
+      if (typeof this.$store.state.featuredPost.postData.data._embedded['wp:featuredmedia'] !== 'undefined') {
+        return this.$store.state.featuredPost.postData.data._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url
       } else {
         return themepath + '/static/post-default-medium.png'
       }
     }
   },
   created () {
-    this.$store.dispatch('getFeaturedPost')
-    this.$store.subscribe((mutation, state) => {
-      if (mutation.type === 'storeFeatured') {
-        this.postLoaded = true
-        // FIXME: Abstract this, never use local data. Reference the vuex store.
-        this.post = state.featuredPost.postData.data
-      }
-    })
+    if (this.$store.state.featuredPost.postData) {
+      this.postLoaded = true
+    } else {
+      this.$store.dispatch('getFeaturedPost')
+      this.$store.subscribe((mutation, state) => {
+        if (mutation.type === 'storeFeatured') {
+          this.postLoaded = true
+        }
+      })
+    }
   }
 }
 </script>
