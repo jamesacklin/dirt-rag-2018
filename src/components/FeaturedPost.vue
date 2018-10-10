@@ -30,6 +30,7 @@ export default {
   },
   computed: {
     srcset: function () {
+      // FIXME: Make this reference the store, but keep the functionality here
       if (typeof this.post._embedded['wp:featuredmedia'] !== 'undefined') {
         return [
           this.post._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url + ' 150w',
@@ -58,6 +59,7 @@ export default {
     this.$store.subscribe((mutation, state) => {
       if (mutation.type === 'storeFeatured') {
         this.postLoaded = true
+        // FIXME: Abstract this, never use local data. Reference the vuex store.
         this.post = state.featuredPost.postData.data
       }
     })

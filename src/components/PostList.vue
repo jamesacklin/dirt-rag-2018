@@ -50,12 +50,16 @@ export default {
       var _this = this
       this.$store.subscribe((mutation, state) => {
         if (mutation.type === 'storePosts') {
+          // FIXME: Abstract this, never use local data. Reference the vuex store.
+          // Passing params to the child POST is OK.
           _this.posts = state.posts[this.category]
           _this.postsLoaded = true
         }
       })
       this.$store.subscribe((mutation, state) => {
         if (mutation.type === 'storeCats') {
+          // FIXME: Abstract this, never use local data. Reference the vuex store.
+          // Passing params to the child POST is OK.
           _this.categoryName = state.categoryDict[this.category]
         }
       })
