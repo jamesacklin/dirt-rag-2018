@@ -1,15 +1,30 @@
 <template>
   <div id="App">
-    <router-view/>
+    <div class="page">
+      <Header></Header>
+      <div class="content">
+        <router-view/>
+      </div>
+      <div class="sidebar">
+        <Advertising></Advertising>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import Header from '@/components/Header'
+import Advertising from '@/components/Advertising'
+
 import MobileDetect from 'mobile-detect'
 var md = new MobileDetect(window.navigator.userAgent)
 
 export default {
   name: 'App',
+  components: {
+    Header,
+    Advertising
+  },
   computed: {
     isMobile: function () {
       if (md.mobile()) {
@@ -34,27 +49,25 @@ export default {
 .hover-red:hover { color: #be1e2d !important }
 .bg-red { background-color: #be1e2d !important }
 
-.content-view {
-  width: calc(100% - 300px - 1rem);
-  float: left;
-}
+@media (min-width: 800px){
+  .page {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-column-gap: 1rem;
+  }
 
-header[role='banner']{
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  header, footer {
+    grid-column: 1 / -1;
+  }
 
-.ad-sidebar {
-  width: 300px;
-  float: left;
-  padding-right: 1rem;
-}
+  .content {
+    /* width: 79.7872%; */
+  }
 
-.ad-sidebar > div {
-  margin-bottom: 1rem;
-  text-align: center;
+  .sidebar {
+    /* width: 19.1489%; */
+    width: 300px;
+  }
 }
 
 </style>
