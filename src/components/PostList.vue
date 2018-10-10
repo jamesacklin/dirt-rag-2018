@@ -10,13 +10,14 @@
     </h4>
     <Spinner class="spinner" v-if="!postsLoaded" key="spinner"></Spinner>
     <div class="post-list" v-if="postsLoaded">
-      <Post v-for="(post, index) in postArray" :key="index" :postdata="post" :index="index"></Post>
+      <Post v-for="(post, index) in this.$store.state.posts[this.category]" :key="index" :postdata="post" :index="index"></Post>
     </div>
     <div v-if="postsLoaded">
       <button class="input-reset action-button" v-if="counter < 6" v-on:click="increment">
         <span class="">More {{ $store.state.categoryDict[this.category] }} <i class="fa fa-chevron-down fr"></i> </span>
       </button>
-      <router-link :to="{ name: 'category', params: { cat_id: this.category } }" class="action-button" v-if="counter >= 6">
+      <Spinner class="spinner" v-if="counter > 3 && this.$store.state.posts[this.category].length < 6" key="spinner"></Spinner>
+      <router-link :to="{ name: 'category', params: { cat_id: this.category } }" class="action-button" v-if="counter >= 6 && this.$store.state.posts[this.category].length >= 6">
         <span class="">See All {{ $store.state.categoryDict[this.category] }} <i class="fa fa-arrow-right fr"></i></span>
       </router-link>
     </div>
@@ -44,7 +45,7 @@ export default {
     if (this.$store.state.posts[this.category]) {
       this.postsLoaded = true
     } else {
-      this.$store.dispatch('getWpCat', { category: this.category, perpage: 6 })
+      this.$store.dispatch('getWpCat', { category: this.category, perpage: 3 })
       this.$store.subscribe((mutation, state) => {
         if (mutation.type === 'storePosts') {
           this.postsLoaded = true
@@ -52,13 +53,9 @@ export default {
       })
     }
   },
-  computed: {
-    postArray: function () {
-      return this.$store.state.posts[this.category].slice(0, this.counter)
-    }
-  },
   methods: {
     increment () {
+      this.$store.dispatch('getWpCat', { category: this.category, perpage: 6 })
       this.counter += 3
     }
   }
