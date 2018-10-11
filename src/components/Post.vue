@@ -13,7 +13,19 @@
     </figure>
     <div class="postlist-post-content">
       <div class="">
-        <h3 :class="{'mh-custom-posts-xl-title' : index == 0, 'mh-custom-posts-small-title' : index != 0}" class="oswald ttu f3 normal lh-solid mt0 mb3"><a :href="data.link" class="black link no-underline hover-red"><span v-html="data.title.rendered"></span></a></h3>
+        <h3 :class="{'mh-custom-posts-xl-title' : index == 0, 'mh-custom-posts-small-title' : index != 0}" class="oswald ttu f3 normal lh-solid mt0 mb3">
+          <router-link
+            v-html="data.title.rendered"
+            :to="{
+              name: 'Single',
+              params: {
+                slug: data.slug,
+                id: data.id
+              }
+            }"
+            class="black link no-underline hover-red">
+          </router-link>
+        </h3>
       </div>
 
       <div class="gray f6 sans-serif mb3">
