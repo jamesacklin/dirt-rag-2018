@@ -52,7 +52,7 @@ export default {
 @media (min-width: 800px){
   .page {
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 4fr 1fr;
     grid-column-gap: 1rem;
   }
 
@@ -66,7 +66,8 @@ export default {
 
   .sidebar {
     /* width: 19.1489%; */
-    width: 300px;
+    text-align: right;
+    padding-right: 1rem;
   }
 }
 

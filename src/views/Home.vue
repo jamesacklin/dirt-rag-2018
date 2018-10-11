@@ -43,7 +43,7 @@ export default {
 
 <style lang="css">
 
-.home-content { padding: 1rem; }
+.home { padding: 0 1rem }
 
 @media (min-width: 800px){
   .home-grid {

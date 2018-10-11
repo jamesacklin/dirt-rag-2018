@@ -19,5 +19,8 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style scoped>
+>>> div[data-google-query-id] {
+  margin-bottom: 1rem;
+}
 </style>

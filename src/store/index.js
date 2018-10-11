@@ -13,7 +13,8 @@ const store = new Vuex.Store({
   state: {
     categoryDict: {},
     featuredPost: {},
-    posts: {}
+    posts: {},
+    currentPost: {}
   },
   actions: {
     getFeaturedPost: function (context, payload) {
@@ -86,6 +87,26 @@ const store = new Vuex.Store({
             reject(error)
           })
       })
+    },
+    getCurrentPost: function (context, payload) {
+      const slug = payload.slug
+      return new Promise((resolve, reject) => {
+        axios
+          .get(
+            host +
+              '/wp-json/wp/v2/posts?_embed&slug=' + slug
+          )
+          .then(response => {
+            context.commit({
+              type: 'storeCurrent',
+              data: response.data
+            })
+            resolve()
+          })
+          .catch(error => {
+            reject(error)
+          })
+      })
     }
   },
   mutations: {
@@ -97,6 +118,9 @@ const store = new Vuex.Store({
     },
     storePosts (state, { category, data }) {
       Vue.set(state.posts, category, data)
+    },
+    storeCurrent (state, data) {
+      Vue.set(state.currentPost, 'postData', data)
     }
   }
 })

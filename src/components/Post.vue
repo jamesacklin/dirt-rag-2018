@@ -1,7 +1,7 @@
 <template lang="html">
   <div :class="{'postlist-post postlist-post-first' : index == 0, 'postlist-post' : index != 0}" class="">
     <figure :class="{'' : index == 0, '' : index != 0}" class="pa0 ma0">
-      <a class="db relative overflow-hidden" :href="data.link">
+      <router-link class="db relative overflow-hidden" :to="{ name: 'Single', params: { slug: data.slug, id: data.id } }">
         <img
         :class="{'w-100' : index != 0}"
         :srcset="srcset"
@@ -9,7 +9,7 @@
         :src="getFeaturedImage(data)"
         class="grow"
         alt="">
-      </a>
+      </router-link>
     </figure>
     <div class="postlist-post-content">
       <div class="">
