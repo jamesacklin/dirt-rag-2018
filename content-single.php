@@ -9,9 +9,11 @@ $mh_magazine_options = mh_magazine_theme_options(); ?>
       $sponsored_meta = get_post_meta($post->ID, 'sponsoredPost', true);
       if ( ! empty ( $sponsored_meta ) ) {
         $sponsored_brand = get_post_meta($post->ID, 'sponsoredPostBrand', true);
-    ?>
-      <div style="text-transform: uppercase; margin: 1rem; text-align: center; font-family: Oswald, sans-serif; color: #999; font-size: 1.2rem;">Brought to you in partnership with <?php echo $sponsored_brand ?></div>
-    <?php } ?>
+        if ( ! empty ($sponsored_brand ) ) { ?>
+          <div style="text-transform: uppercase; margin: 1rem; text-align: center; font-family: Oswald, sans-serif; color: #999; font-size: 1.2rem;">Brought to you in partnership with <?php echo $sponsored_brand ?></div>
+        <?php } else { ?>
+          <div style="text-transform: uppercase; margin: 1rem; text-align: center; font-family: Oswald, sans-serif; color: #999; font-size: 1.2rem;">A Sponsored Story</div>
+    <?php } } ?>
 
 	</header>
 	<?php dynamic_sidebar('mh-posts-1'); ?>
