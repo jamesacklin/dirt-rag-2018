@@ -63,6 +63,14 @@ register_meta('post', 'sponsoredPost',
     ]
 );
 
+register_meta('post', 'sponsoredPostBrand',
+    [
+        'show_in_rest' => true,
+        'type' => 'string',
+        'description' => 'The brand sponsoring this post',
+    ]
+);
+
 if (!function_exists('mh_add_meta_boxes')) {
 	function mh_add_meta_boxes() {
 		add_meta_box('mh_post_details', esc_html__('Post Options', 'mh-magazine'), 'mh_post_options', 'post', 'normal', 'high');
@@ -93,6 +101,11 @@ if (!function_exists('mh_post_options')) {
 		echo '<input type="checkbox" id="sponsoredPost" name="sponsoredPost"'; echo checked(get_post_meta($post->ID, 'mh-sponsoredPost', true), 'on'); echo '/>';
 		echo '<label for="sponsoredPost">' . esc_html__('Mark this post as sponsored', 'mh-magazine') . '</label>';
 		echo '</p>';
+    echo '<p>';
+		echo '<label for="sponsoredPostBrand">' . esc_html__("Brand sponsoring post", 'mh-magazine') . '</label>';
+		echo '<br />';
+		echo '<input class="widefat" type="text" name="sponsoredPostBrand" id="sponsoredPostBrand" placeholder="Enter brand" value="' . esc_attr(get_post_meta($post->ID, 'sponsoredPostBrand', true)) . '" size="30" />';
+		echo '</p>';
 		echo '<p>';
 		echo '<input type="checkbox" id="mh-no-ad" name="mh-no-ad"'; echo checked(get_post_meta($post->ID, 'mh-no-ad', true), 'on'); echo '/>';
 		echo '<label for="mh-no-ad">' . esc_html__('Disable Content Ad for this Post', 'mh-magazine') . '</label>';
@@ -122,9 +135,11 @@ if (!function_exists('mh_save_meta_boxes')) {
 		}
 		if ('post' == $_POST['post_type']) {
 			$meta_data['mh-subheading'] = esc_attr($_POST['mh-subheading']);
+
 			$meta_data['mh-alt-ad'] = $_POST['mh-alt-ad'];
 			$meta_data['featuredPost'] = isset($_POST['featuredPost']) ? esc_attr($_POST['featuredPost']) : '';
 			$meta_data['sponsoredPost'] = isset($_POST['sponsoredPost']) ? esc_attr($_POST['sponsoredPost']) : '';
+      $meta_data['sponsoredPostBrand'] = esc_attr($_POST['sponsoredPostBrand']);
 			$meta_data['mh-no-ad'] = isset($_POST['mh-no-ad']) ? esc_attr($_POST['mh-no-ad']) : '';
 			$meta_data['mh-no-image'] = isset($_POST['mh-no-image']) ? esc_attr($_POST['mh-no-image']) : '';
 		}
