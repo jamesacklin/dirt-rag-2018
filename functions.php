@@ -47,11 +47,19 @@ if (!function_exists('mh_magazine_excerpt_markup')) {
 add_filter('the_excerpt', 'mh_magazine_excerpt_markup');
 
 /***** Custom Meta Boxes *****/
-register_meta('post', 'featured-post',
+register_meta('post', 'featuredPost',
     [
         'show_in_rest' => true,
         'type' => 'boolean',
         'description' => 'To feature this post on the home page or not',
+    ]
+);
+
+register_meta('post', 'sponsoredPost',
+    [
+        'show_in_rest' => true,
+        'type' => 'boolean',
+        'description' => 'If this is a sponsored post or not',
     ]
 );
 
@@ -78,8 +86,12 @@ if (!function_exists('mh_post_options')) {
 		echo '<br />';
 		echo '</p>';
 		echo '<p>';
-		echo '<input type="checkbox" id="featured-post" name="featured-post"'; echo checked(get_post_meta($post->ID, 'mh-featued-post', true), 'on'); echo '/>';
-		echo '<label for="featured-post">' . esc_html__('Feature this post on Home Page', 'mh-magazine') . '</label>';
+		echo '<input type="checkbox" id="featuredPost" name="featuredPost"'; echo checked(get_post_meta($post->ID, 'mh-featued-post', true), 'on'); echo '/>';
+		echo '<label for="featuredPost">' . esc_html__('Feature this post on Home Page', 'mh-magazine') . '</label>';
+		echo '</p>';
+		echo '<p>';
+		echo '<input type="checkbox" id="sponsoredPost" name="sponsoredPost"'; echo checked(get_post_meta($post->ID, 'mh-sponsoredPost', true), 'on'); echo '/>';
+		echo '<label for="sponsoredPost">' . esc_html__('Mark this post as sponsored', 'mh-magazine') . '</label>';
 		echo '</p>';
 		echo '<p>';
 		echo '<input type="checkbox" id="mh-no-ad" name="mh-no-ad"'; echo checked(get_post_meta($post->ID, 'mh-no-ad', true), 'on'); echo '/>';
@@ -111,7 +123,8 @@ if (!function_exists('mh_save_meta_boxes')) {
 		if ('post' == $_POST['post_type']) {
 			$meta_data['mh-subheading'] = esc_attr($_POST['mh-subheading']);
 			$meta_data['mh-alt-ad'] = $_POST['mh-alt-ad'];
-			$meta_data['featured-post'] = isset($_POST['featured-post']) ? esc_attr($_POST['featured-post']) : '';
+			$meta_data['featuredPost'] = isset($_POST['featuredPost']) ? esc_attr($_POST['featuredPost']) : '';
+			$meta_data['sponsoredPost'] = isset($_POST['sponsoredPost']) ? esc_attr($_POST['sponsoredPost']) : '';
 			$meta_data['mh-no-ad'] = isset($_POST['mh-no-ad']) ? esc_attr($_POST['mh-no-ad']) : '';
 			$meta_data['mh-no-image'] = isset($_POST['mh-no-image']) ? esc_attr($_POST['mh-no-image']) : '';
 		}

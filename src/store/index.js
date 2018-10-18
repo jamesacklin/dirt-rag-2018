@@ -99,7 +99,7 @@ const store = new Vuex.Store({
           axios
             .get(
               host +
-                '/wp-json/wp/v2/posts?filter[meta_key]=featured-post&filter[meta_value]=on&per_page=1&orderby=date&order=desc&_embed'
+                '/wp-json/wp/v2/posts?filter[meta_key]=featuredPost&filter[meta_value]=on&per_page=1&orderby=date&order=desc&_embed'
             )
             .then(response => {
               context.commit({

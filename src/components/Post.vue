@@ -11,7 +11,15 @@
         alt="">
       </a>
     </figure>
-    <div class="postlist-post-content">
+    <div class="postlist-post-content relative">
+      <div v-if="data.meta.sponsoredPost[0]">
+        <div v-if="index == 0" class="oswald ttu pv1 ph2 bg-black white f6 dib absolute top--2">
+          Sponsored
+        </div>
+        <div v-if="index != 0" class="oswald ttu gray f6">
+          Sponsored
+        </div>
+      </div>
       <div class="">
         <h3 :class="{'mh-custom-posts-xl-title' : index == 0, 'mh-custom-posts-small-title' : index != 0}" class="oswald ttu f3 normal lh-solid mt0 mb3"><a :href="data.link" class="black link no-underline hover-red"><span v-html="data.title.rendered"></span></a></h3>
       </div>
