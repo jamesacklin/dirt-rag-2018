@@ -34,6 +34,12 @@
         <div v-if="isMobile" class="tag-unit">
           <div id='div-gpt-ad-1487038544877-7'></div>
         </div>
+        <div v-if="isMobile" class="tag-unit">
+          <div id='div-gpt-ad-1525210305082-0'></div>
+        </div>
+        <div v-if="isMobile" class="tag-unit">
+          <div id='div-gpt-ad-1525213375178-0'></div>
+        </div>
       </div>
     </div>
     <div v-if="!isMobile" class="home-sidebar">
