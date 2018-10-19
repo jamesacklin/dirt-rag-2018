@@ -137,8 +137,8 @@ export default {
   }
   .home-content .home-grid {
     display: grid;
-    grid-template-columns: auto auto;
-    grid-column-gap: 1rem;
+    grid-template-columns: 49.5% 49.5%;
+    grid-column-gap: 1%;
   }
   .tag-unit {
     margin-bottom: 1rem;
