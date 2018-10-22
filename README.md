@@ -6,7 +6,7 @@ This is a child WordPress theme of [mh-magazine](https://www.mhthemes.com/themes
 
 In June 2018, the Dirt Rag editorial team selected some visual and UX updates to the existing Dirt Rag Magazine site. These updates did not necessitate a full rewrite, but we wanted to lay some technical groundwork with some tangible benefits for end users.
 
-We landed on a hybrid model in which we mount a Vue application into a static PHP page, which lives within a WordPress theme. This means we can do all the plumbing work we need to without disrupting the existing day-to-day operations at RMM or—somewhat more importantly—rewriting the entire site in a new language and potentially confusing readers.
+We landed on a hybrid model in which we mount a Vue application into a static PHP page, which lives within a WordPress theme. This means we can do all the plumbing work we need to without disrupting the existing day-to-day operations at RMM or—somewhat more importantly—rewriting the entire site in a new language and potentially confusing readers. This also means we can reduce the number of running plugins, thereby reducing server-side processing overhead and improving performance. (Asynchronous loading gives the effect that content is loading faster than it actually is.)
 
 The `standalone-app` branch demonstrates a completely headless approach to authoring a custom client application for a content service, which is the approach we want to take for the full Dirt Rag redesign.
 
