@@ -1,5 +1,6 @@
 <template lang="html">
   <div>
+    <OutsideFeed></OutsideFeed>
     <google-ad unit="DR_300x250_Square1" id="div-gpt-ad-1487038544877-0" size="rectangle"></google-ad>
     <google-ad unit="DR_300x250_Square2" id="div-gpt-ad-1487038544877-1" size="rectangle"></google-ad>
     <google-ad unit="DR_300x250_Square3" id="div-gpt-ad-1487038544877-2" size="rectangle"></google-ad>
@@ -14,8 +15,13 @@
 </template>
 
 <script>
+import OutsideFeed from '../components/OutsideFeed'
+
 export default {
-  name: 'Advertising'
+  name: 'Advertising',
+  components: {
+    OutsideFeed
+  }
 }
 </script>
 
