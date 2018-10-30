@@ -1,5 +1,13 @@
 <div class="tag-units">
   <div class="tag-unit">
+    <div id="botr_tluteeuw_8cg9oAyB_div"></div>
+    <script type="text/javascript">
+      var outsideScript = document.createElement('script')
+      outsideScript.setAttribute('src', '//content.jwplatform.com/players/tluteeuw-8cg9oAyB.js')
+      document.head.appendChild(outsideScript)
+    </script>
+  </div>
+  <div class="tag-unit">
     <div id='div-gpt-ad-1487038544877-0'></div>
   </div>
   <div class="tag-unit">
