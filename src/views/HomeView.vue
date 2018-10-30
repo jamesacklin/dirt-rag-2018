@@ -43,6 +43,9 @@
       </div>
     </div>
     <div v-if="!isMobile" class="home-sidebar">
+      <div class="mb3">
+        <OutsideFeed></OutsideFeed>
+      </div>
       <div class="tag-unit" v-bind:key="slot.id" v-for="slot in this.$store.state.advertising.slots">
         <div :id="slot.id"></div>
       </div>
@@ -55,6 +58,7 @@ import MobileDetect from 'mobile-detect'
 import FeaturedPost from '../components/FeaturedPost'
 import ContestSplice from '../components/ContestSplice'
 import PostList from '../components/PostList'
+import OutsideFeed from '../components/OutsideFeed'
 
 var md = new MobileDetect(window.navigator.userAgent)
 
@@ -63,7 +67,8 @@ export default {
   components: {
     FeaturedPost,
     ContestSplice,
-    PostList
+    PostList,
+    OutsideFeed
   },
   computed: {
     isMobile: function () {
