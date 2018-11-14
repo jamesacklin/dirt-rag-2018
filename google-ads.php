@@ -41,7 +41,7 @@
 
 <style type="text/css">
 .tag-units {
-  width: 300px;
+  width: 312px;
   float: right;
 }
 .tag-unit {

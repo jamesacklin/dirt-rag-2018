@@ -138,7 +138,7 @@ export default {
     padding-right: 2%;
   }
   .home-sidebar {
-    width: 300px;
+    width: 312px;
   }
   .home-content .home-grid {
     display: grid;
